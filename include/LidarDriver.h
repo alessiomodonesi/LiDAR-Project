@@ -2,16 +2,13 @@
 #define LIDARDRIVER_H
 
 #include <iostream>
-#include <stdexcept>
-#include <vector>
 
 class LidarDriver
 {
 
 public:
     // constructors
-    LidarDriver(void): buffer(BUFFER_DIM, std::vector<double>((MAX_RANGE / angular_resolution) + 1)){} // default constructor
-    LidarDriver(double new_resolution): buffer(BUFFER_DIM, std::vector<double>((MAX_RANGE / angular_resolution) + 1)){} // costruttore con risoluzione angolare diversa da 1
+    LidarDriver(double resolution = defaultResolution) : buffer(BUFFER_DIM, std::vector<double>((MAX_RANGE / angularResolution_) + 1)) {}
 
     // member functions
     void new_scan(std::vector<double> scan); // memorizza nel buffer una scansione
@@ -20,10 +17,11 @@ public:
     double get_distance(double angle) const; // ritorna la lettura corrispondente a tale angolo
 
 private:
-    const int BUFFER_DIM = 10;
-    const int MAX_RANGE = 180;
-    double angular_resolution{1}; // risoluzione angolare del sensore
-    std::vector<std::vector<double>> buffer; // buffer con vector bidimensionale 
+    double angularResolution_;               // risoluzione angolare del sensore
+    std::vector<std::vector<double>> buffer; // buffer con vector bidimensionale
+    static constexpr int BUFFER_DIM = 10;    // dimensione del buffer
+    static constexpr int MAX_RANGE = 180;    // range massimo del sensore
+    static constexpr int defaultResolution = 1;
 };
 
 // helper function
