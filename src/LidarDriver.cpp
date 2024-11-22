@@ -4,8 +4,8 @@
 
 #include "LidarDriver.h"
 
-LidarDriver(double resolution)
-    : angular_resolution_{resolution}
+LidarDriver::LidarDriver(double resolution)
+    : angular_resolution_{resolution}, buffer(BUFFER_DIM, std::vector<double>((MAX_RANGE / angular_resolution_) + 1))
 {
     if (angular_resolution_ < 0.1 || angular_resolution_ > 1)
         throw std::invalid_argument("angular resolution must be [0.1, 1]");
@@ -23,7 +23,9 @@ void LidarDriver::new_scan(std::vector<double> scan) // memorizza nel buffer una
 
 std::vector<double> LidarDriver::get_scan(void) // fornisce in output la scansione più vecchia e la rimuove dal buffer
 {
-    return buffer[oldest_position];
+    std::vector<double> oldest_scan = buffer[oldest_position];
+    buffer[oldest_position].clear();
+    return oldest_scan;
 } 
 
 void LidarDriver::clear_buffer(void) {} // elimina tutte le scansioni senza restituirle
