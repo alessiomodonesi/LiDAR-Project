@@ -27,7 +27,7 @@ std::vector<double> LidarDriver::get_scan(void) // fornisce in output la scansio
 
 void LidarDriver::clear_buffer(void) {} // elimina tutte le scansioni senza restituirle
 
-double LidarDriver::get_distance(double angle) // ritorna la lettura corrispondente a tale angolo
+double LidarDriver::get_distance(double angle) const // ritorna la lettura corrispondente a tale angolo
 {
     return buffer[position][find_closest_angle(angle)]; 
 }
