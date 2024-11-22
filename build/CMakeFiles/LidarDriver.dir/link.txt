@@ -1,1 +1,0 @@
-/usr/bin/c++ -fPIC -shared -Wl,-soname,libLidarDriver.so -o libLidarDriver.so CMakeFiles/LidarDriver.dir/src/LidarDriver.cpp.o 
