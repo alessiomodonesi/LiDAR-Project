@@ -1,7 +1,10 @@
 #include <iostream>
-#include "LidarDriver.h"
+#include "rational.h"
 
-int main (void)
+using namespace std;
+
+int main(int argc, char **argv)
 {
-    return 0;
+    LidarDriver lidar1;
+    LidarDriver lidar1(0.5);
 }

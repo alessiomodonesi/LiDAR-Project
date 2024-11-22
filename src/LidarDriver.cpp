@@ -5,11 +5,9 @@
 #include "LidarDriver.h"
 
 LidarDriver::LidarDriver(double resolution)
-    : angularResolution_{resolution}, buffer(BUFFER_DIM, std::vector<double>((MAX_RANGE / angularResolution_) + 1))
+    : angular_resolution_{resolution}, buffer(BUFFER_DIM, std::vector<double>((MAX_RANGE / angular_resolution_) + 1))
 {
-    if (angularResolution_ >= 0.1 && angularResolution_ <= 1)
-        resolution = angularResolution_;
-    else
+    if (angular_resolution_ < 0.1 || angular_resolution_ > 1)
         throw std::invalid_argument("angular resolution must be [0.1, 1]");
 }
 
@@ -18,32 +16,33 @@ void LidarDriver::new_scan(std::vector<double> scan) // memorizza nel buffer una
 {
     if (position != -1 && update_position(position) == oldest_position)
         oldest_position = update_position(oldest_position)
+    
     position = update_position(position);
     buffer[position] = scan;
 }
 
 std::vector<double> LidarDriver::get_scan(void); // fornisce in output la scansione più vecchia e la rimuove dal buffer
 
-void LidarDriver::clear_buffer(void);
+void LidarDriver::clear_buffer(void); // elimina tutte le scansioni senza restituirle
 
 double LidarDriver::get_distance(double angle) // ritorna la lettura corrispondente a tale angolo
 {
-    return buffer[position][find_closest_angle(angle)]; // elimina tutte le scansioni senza restituirle
+    return buffer[position][find_closest_angle(angle)]; 
 }
 
 int LidarDriver::update_position(int i)
 {
-    if (i == BUFFER_DIM - 1)
-        i = 0;
+    if (i == (BUFFER_DIM - 1))
+        return i = 0;
     else
-        i++;
-    return i;
+        return i++;
 }
 
 double LidarDriver::find_closest_angle(double angle)
 {
     double closest_angle = 0.0;
     double min_diff = 1.0;
+
     for (int i = 0; i <= MAX_RANGE; i++)
     {
         double diff = std::abs(i - angle);
@@ -53,11 +52,13 @@ double LidarDriver::find_closest_angle(double angle)
             closest_angle = angle;
         }
     }
+
     return closest_angle;
 }
 
-std::ostream &operator<<(std::ostream &out, const std::vector<double> &lastScan)
+// helper function
+std::ostream &operator<<(std::ostream &out, const std::vector<double> &last_scan)
 {
-    for (double i : lastScan)
+    for (double i : last_scan)
         out << i << " ";
 }
