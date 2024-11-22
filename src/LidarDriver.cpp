@@ -1,15 +1,14 @@
 #include <iostream>
 #include <stdexcept>
 #include <vector>
-#pragma once
 
 #include "LidarDriver.h"
 
-LidarDriver::LidarDriver(void)
-    : buffer(BUFFER_DIM, std::vector<double>((MAX_RANGE / angular_resolution_) + 1))
+LidarDriver::LidarDriver(double resolution)
+    : angular_resolution_{resolution}, buffer(BUFFER_DIM, std::vector<double>((MAX_RANGE / angular_resolution_) + 1))
 {
-    // if (angular_resolution_ < 0.1 || angular_resolution_ > 1)
-    //     throw std::invalid_argument("angular resolution must be [0.1, 1]");
+    if (angular_resolution_ < 0.1 || angular_resolution_ > 1)
+        throw std::invalid_argument("angular resolution must be [0.1, 1]");
 }
 
 // member functions
@@ -17,14 +16,17 @@ void LidarDriver::new_scan(std::vector<double> scan) // memorizza nel buffer una
 {
     if (position != -1 && update_position(position) == oldest_position)
         oldest_position = update_position(oldest_position);
-
+    
     position = update_position(position);
     buffer[position] = scan;
 }
 
-std::vector<double> LidarDriver::get_scan(void); // fornisce in output la scansione più vecchia e la rimuove dal buffer
+std::vector<double> LidarDriver::get_scan(void) // fornisce in output la scansione più vecchia e la rimuove dal buffer
+{
+    return buffer[oldest_position];
+} 
 
-void LidarDriver::clear_buffer(void); // elimina tutte le scansioni senza restituirle
+void LidarDriver::clear_buffer(void) {} // elimina tutte le scansioni senza restituirle
 
 double LidarDriver::get_distance(double angle) // ritorna la lettura corrispondente a tale angolo
 {

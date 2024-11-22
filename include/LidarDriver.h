@@ -9,7 +9,7 @@ class LidarDriver
 
 public:
     // constructor
-    LidarDriver(void) : buffer(BUFFER_DIM, std::vector<double>((MAX_RANGE / angular_resolution_) + 1)) {}
+    LidarDriver(double resolution = DEFAULT_RESOLUTION) : buffer(BUFFER_DIM, std::vector<double>((MAX_RANGE / angular_resolution_) + 1)) {}
 
     // member functions
     void new_scan(std::vector<double> scan);                            // memorizza nel buffer una scansione
@@ -19,16 +19,17 @@ public:
     int angularResolution(void) const { return angular_resolution_; }   // metodo get per la risoluzione
 
 private:
+    double angular_resolution_;                     // risoluzione angolare del sensore
     int position {-1};                              // posizione in cui è stata inserita l'ultima scansione
     int oldest_position {0};                        // posizione della scansione più vecchia
-    double angular_resolution_{1};                  // risoluzione angolare del sensore
     std::vector<std::vector<double>> buffer;        // buffer con vector bidimensionale
+    
+    static constexpr int BUFFER_DIM = 10;           // dimensione del buffer
+    static constexpr int MAX_RANGE = 180;           // range massimo del sensore
+    static constexpr int DEFAULT_RESOLUTION = 1;    // risoluzione di default
 
     int update_position (int i);                    // restituisce correttamente la posizione successiva
     double find_closest_angle (double angle);       // trova l'angolo più vicino a quello passato come parametro in get_distance
-
-    static constexpr int BUFFER_DIM = 10;           // dimensione del buffer
-    static constexpr int MAX_RANGE = 180;           // range massimo del sensore
 };
 
 // helper function
