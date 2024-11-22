@@ -14,7 +14,9 @@ LidarDriver::LidarDriver(double resolution)
 }
 
 // member functions
-void new_scan(std::vector<double> scan);
+void new_scan(std::vector<double> scan) {
+    buffer[right_position] = scan;
+}
 std::vector<double> get_scan(void);
 void clear_buffer(void);
 double get_distance(double angle);
