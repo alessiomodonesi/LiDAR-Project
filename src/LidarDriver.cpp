@@ -4,11 +4,11 @@
 
 #include "LidarDriver.h"
 
-LidarDriver::LidarDriver(double resolution)
-    : angular_resolution_{resolution}, buffer(BUFFER_DIM, std::vector<double>((MAX_RANGE / angular_resolution_) + 1))
+LidarDriver::LidarDriver(void)
+    : buffer(BUFFER_DIM, std::vector<double>((MAX_RANGE / angular_resolution_) + 1))
 {
-    if (angular_resolution_ < 0.1 || angular_resolution_ > 1)
-        throw std::invalid_argument("angular resolution must be [0.1, 1]");
+    // if (angular_resolution_ < 0.1 || angular_resolution_ > 1)
+    //     throw std::invalid_argument("angular resolution must be [0.1, 1]");
 }
 
 // member functions
