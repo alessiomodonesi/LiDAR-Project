@@ -15,7 +15,7 @@ public:
     void new_scan(std::vector<double> scan);                            // memorizza nel buffer una scansione
     std::vector<double> get_scan(void);                                 // fornisce in output la scansione più vecchia e la rimuove dal buffer
     void clear_buffer(void);                                            // elimina tutte le scansioni senza restituirle
-    double get_distance(double angle) const;                            // ritorna la lettura corrispondente a tale angolo
+    double get_distance(double angle);                                  // ritorna la lettura corrispondente a tale angolo
     int angularResolution(void) const { return angular_resolution_; }   // metodo get per la risoluzione
 
 private:
