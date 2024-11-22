@@ -19,11 +19,16 @@ public:
     int angularResolution(void) const { return angularResolution_; } // metodo get per la risoluzione
 
 private:
-    double angularResolution_;               // risoluzione angolare del sensore
-    std::vector<std::vector<double>> buffer; // buffer con vector bidimensionale
-    static constexpr int BUFFER_DIM = 10;    // dimensione del buffer
-    static constexpr int MAX_RANGE = 180;    // range massimo del sensore
+    double angularResolution_;                      // risoluzione angolare del sensore
+    std::vector<std::vector<double>> buffer;        // buffer con vector bidimensionale
+    static constexpr int BUFFER_DIM = 10;           // dimensione del buffer
+    static constexpr int MAX_RANGE = 180;           // range massimo del sensore
     static constexpr int defaultResolution = 1;
+    int position {-1};                              // posizione in cui è stata inserita l'ultima scansione
+    int oldest_position {0};                        // posizione della scansione più vecchia
+    int update_position (int i);                    // funzione che restituisce correttamente la posizione successiva a quella passata come argomento
+                                                    // se viene passato l'indice 9 si deve tornare all'inizio del buffer e quindi restituisce 0
+    double find_closest_angle (double angle);       // trova l'angolo più vicino a quello passato come parametro in get_distance
 };
 
 // helper function
