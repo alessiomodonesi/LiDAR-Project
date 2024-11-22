@@ -2,6 +2,7 @@
 #define LIDARDRIVER_H
 
 #include <iostream>
+#include <vector>
 
 class LidarDriver
 {
