@@ -64,16 +64,16 @@ int main()
     default_lidar.new_scan(scan10);
 
     // recupero e stampa della scansione più vecchia
-    std::vector<double> oldest_scan = default_lidar.get_scan();
+    std::vector<double> oldest_scan1 = default_lidar.get_scan();
     std::cout << "1) scansione più vecchia:" << std::endl;
-    std::cout << oldest_scan;
+    std::cout << oldest_scan1;
 
     default_lidar.new_scan(scan11);
 
     // recupero e stampa della scansione più vecchia
-    std::vector<double> oldest_scan = default_lidar.get_scan();
+    std::vector<double> oldest_scan2 = default_lidar.get_scan();
     std::cout << "2) scansione più vecchia:" << std::endl;
-    std::cout << oldest_scan;
+    std::cout << oldest_scan2;
 
     // recupero della distanza a un angolo specifico
     // double angle = 90.3;
