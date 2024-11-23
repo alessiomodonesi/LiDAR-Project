@@ -79,4 +79,6 @@ std::ostream &operator<<(std::ostream &out, const std::vector<double> &last_scan
         out << std::setw(10) << i << std::endl;
         return out;
     }
+
+    return out << std::endl;
 }
