@@ -2,40 +2,44 @@
 #include <vector>
 #include "LidarDriver.h"
 
+std::vector<double> print_scan(int lower, int upper, int count)
+{
+    std::vector<double> scan;
+    for (int i = 0; i < count; i++)
+        scan[i] = (rand() % (upper - lower + 1)) + lower;
+
+    return scan;
+}
+
 int main()
 {
     try
     {
-        // Creazione di un oggetto LidarDriver con una risoluzione angolare di 0.5
-        LidarDriver lidar(0.5);
+        // creazione di un oggetto LidarDriver
+        LidarDriver default_lidar;
 
-        // Simulazione di scansioni
-        std::vector<double> scan1 = {1.0, 2.0, 3.0, 4.0, 5.0};
-        std::vector<double> scan2 = {2.0, 3.0, 4.0, 5.0, 6.0};
-        std::vector<double> scan3 = {3.0, 4.0, 5.0, 6.0, 7.0};
+        // simulazione di scansioni
+        std::vector<double> scan1 = print_scan(0, 2, 181);
 
-        // Aggiunta delle scansioni al buffer
-        lidar.new_scan(scan1);
-        lidar.new_scan(scan2);
-        lidar.new_scan(scan3);
+        // aggiunta delle scansioni al buffer
+        default_lidar.new_scan(scan1);
 
-        // Recupero e stampa della scansione più vecchia
-        std::vector<double> oldest_scan = lidar.get_scan();
-        std::cout << "Scansione più vecchia:" << std::endl;
+        // recupero e stampa della scansione più vecchia
+        std::vector<double> oldest_scan = default_lidar.get_scan();
+        std::cout << "scansione più vecchia:" << std::endl;
         std::cout << oldest_scan;
 
-        // Recupero della distanza a un angolo specifico
-        double angle = 2.0; // esempio di angolo
-        double distance = lidar.get_distance(angle);
-        std::cout << "Distanza a " << angle << " gradi: " << distance << " m" << std::endl;
+        // recupero della distanza a un angolo specifico
+        double angle = 90.3;
+        std::cout << "distanza a " << angle << "°: " << default_lidar.get_distance(angle) << " m" << std::endl;
 
-        // Pulizia del buffer
-        lidar.clear_buffer();
-        std::cout << "Buffer pulito." << std::endl;
+        // pulizia del buffer
+        default_lidar.clear_buffer();
+        std::cout << "buffer pulito" << std::endl;
     }
     catch (const std::invalid_argument &e)
     {
-        std::cerr << "Errore: " << e.what() << std::endl;
+        std::cerr << "errore: " << e.what() << std::endl;
     }
 
     return 0;
