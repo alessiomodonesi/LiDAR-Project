@@ -82,6 +82,6 @@ std::ostream &operator<<(std::ostream &out, const std::vector<double> &last_scan
     // }
 
     for (double i : last_scan)
-        out << i << "\n";
+        out << i << " ";
     return out;
 }

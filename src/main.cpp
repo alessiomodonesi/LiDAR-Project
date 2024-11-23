@@ -28,10 +28,15 @@ int main()
 
     // simulazione di scansioni
     std::vector<double> scan1 = print_scan(0.0, 2.0, 181);
-    // std::cout << scan1 << std::endl;
+    std::vector<double> scan2 = print_scan(0.0, 2.0, 181);
+    std::cout << "scan1: " << scan1 << std::endl;
+    std::cout << "scan2: " << scan2 << std::endl;
+
+    // imposta la risoluzione angolare del sensore
 
     // aggiunta delle scansioni al buffer
     default_lidar.new_scan(scan1);
+    default_lidar.new_scan(scan2);
 
     // recupero e stampa della scansione più vecchia
     std::vector<double> oldest_scan = default_lidar.get_scan();
