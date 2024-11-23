@@ -10,8 +10,7 @@ LidarDriver::LidarDriver(double resolution)
 {
     if (angular_resolution_ < 0.1 || angular_resolution_ > 1)
         throw std::invalid_argument("angular resolution must be [0.1°, 1°]");
-    else
-        std::cout << "angular resolution set to: " << angular_resolution_ << "°" << std::endl;
+    // std::cout << "angular resolution set to: " << angular_resolution_ << "°" << std::endl;
 }
 
 // member functions
