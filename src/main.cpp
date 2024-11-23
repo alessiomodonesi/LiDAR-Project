@@ -33,6 +33,6 @@ int main()
 
     // // pulizia del buffer
     // default_lidar.clear_buffer();
-    // std::cout << "buffer pulito" << std::endl;
+    std::cout << "buffer pulito" << std::endl;
     return 0;
 }
