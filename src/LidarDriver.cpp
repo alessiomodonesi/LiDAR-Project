@@ -33,12 +33,15 @@ std::vector<double> LidarDriver::get_scan(void) // fornisce in output la scansio
 
 void LidarDriver::clear_buffer(void) // elimina tutte le scansioni senza restituirle
 {
-    buffer.clear();
+    for (int i = 0; i < BUFFER_DIM; i++)
+        buffer[i].clear();
+    position = -1;
+    oldest_position = 0;
 }
 
 double LidarDriver::get_distance(double angle) // ritorna la lettura corrispondente a tale angolo
 {
-    return buffer[position][round_angle(angle)];
+    return buffer[position][round_angle(angle) * (1 / angular_resolution_)];
 }
 
 int LidarDriver::update_position(int i)
@@ -55,7 +58,7 @@ double LidarDriver::round_angle(double angle)
     double closest_angle = 0.0;
     double min_diff = 1.0;
 
-    for (int i = 0; i <= MAX_RANGE; i++)
+    for (double i = 0; i <= MAX_RANGE; i += angular_resolution_)
     {
         double diff = std::abs(i - angle);
         if (diff < min_diff)

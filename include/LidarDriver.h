@@ -16,7 +16,7 @@ public:
     std::vector<double> get_scan(void);                                // fornisce in output la scansione più vecchia e la rimuove dal buffer
     void clear_buffer(void);                                           // elimina tutte le scansioni senza restituirle
     double get_distance(double angle);                                 // ritorna la lettura corrispondente a tale angolo
-    int angular_resolution(void) const { return angular_resolution_; } // metodo get per la risoluzione, implementata in-class
+    double angular_resolution(void) const { return angular_resolution_; } // metodo get per la risoluzione, implementata in-class
 
 private:
     double angular_resolution_;              // risoluzione angolare del sensore
@@ -24,9 +24,9 @@ private:
     int oldest_position{0};                  // posizione della scansione più vecchia
     std::vector<std::vector<double>> buffer; // buffer con vector bidimensionale
 
-    static constexpr int BUFFER_DIM = 10;        // dimensione del buffer
-    static constexpr int MAX_RANGE = 180;        // range massimo del sensore
-    static constexpr int DEFAULT_RESOLUTION = 1; // risoluzione di default
+    static constexpr int BUFFER_DIM = 10;               // dimensione del buffer
+    static constexpr int MAX_RANGE = 180;               // range massimo del sensore
+    static constexpr double DEFAULT_RESOLUTION = 1.0;   // risoluzione di default
 
     int update_position(int i);       // restituisce correttamente la posizione successiva
     double round_angle(double angle); // trova l'angolo più vicino a quello passato come parametro in get_distance
