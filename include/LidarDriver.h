@@ -33,6 +33,6 @@ private:
 };
 
 // helper function
-std::ostream &operator<<(std::ostream &out, const std::vector<double> &last_scan);
+// std::ostream &operator<<(std::ostream &out, const std::vector<double> &last_scan);
 
 #endif // LIDARDRIVER_H

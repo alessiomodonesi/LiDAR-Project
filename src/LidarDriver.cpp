@@ -67,16 +67,16 @@ double LidarDriver::round_angle(double angle)
 }
 
 // helper function
-std::ostream &operator<<(std::ostream &out, const std::vector<double> &last_scan)
-{
-    // stampa intestazione
-    out << std::setw(10) << "Lettura [m]" << std::endl;
-    out << "---------------------" << std::endl;
+// std::ostream &operator<<(std::ostream &out, const std::vector<double> &last_scan)
+// {
+//     // stampa intestazione
+//     out << std::setw(10) << "Lettura [m]" << std::endl;
+//     out << "---------------------" << std::endl;
 
-    // stampa valori
-    for (double i : last_scan)
-    {
-        out << std::setw(10) << i << std::endl;
-        return out;
-    }
-}
+//     // stampa valori
+//     for (double i : last_scan)
+//     {
+//         out << std::setw(10) << i << std::endl;
+//         return out;
+//     }
+// }
