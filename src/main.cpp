@@ -38,9 +38,9 @@ int main()
     std::cout << "scansione più vecchia:" << std::endl;
     std::cout << oldest_scan;
 
-    // // recupero della distanza a un angolo specifico
-    // double angle = 90.3;
-    // std::cout << "distanza a " << angle << "°: " << default_lidar.get_distance(angle) << " m" << std::endl;
+    // recupero della distanza a un angolo specifico
+    double angle = 90.3;
+    std::cout << "distanza a " << angle << "°: " << default_lidar.get_distance(angle) << " m" << std::endl;
 
     // // pulizia del buffer
     // default_lidar.clear_buffer();
