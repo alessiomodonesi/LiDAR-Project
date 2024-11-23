@@ -28,7 +28,7 @@ int main()
 
     // simulazione di scansioni
     std::vector<double> scan1 = print_scan(0.0, 2.0, 181);
-    std::cout << scan1 << std::endl;
+    // std::cout << scan1 << std::endl;
 
     // aggiunta delle scansioni al buffer
     default_lidar.new_scan(scan1);
