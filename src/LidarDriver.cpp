@@ -8,8 +8,8 @@
 LidarDriver::LidarDriver(double resolution)
     : angular_resolution_{resolution}, buffer(BUFFER_DIM, std::vector<double>((MAX_RANGE / angular_resolution_) + 1))
 {
-    if (angular_resolution_ < 0.1 || angular_resolution_ > 1)
-        throw std::invalid_argument("angular resolution must be [0.1°, 1°]");
+    if (angular_resolution_ < 0.1 || angular_resolution_ > 1.0)
+        throw std::invalid_argument("angular resolution must be [0.1°, 1.0°]");
     std::cout << "angular resolution set to: " << angular_resolution_ << "°" << std::endl;
 }
 
@@ -35,6 +35,8 @@ void LidarDriver::clear_buffer(void) // elimina tutte le scansioni senza restitu
 {
     for (int i = 0; i < BUFFER_DIM; i++)
         buffer[i].clear();
+
+    // ripristino variabili per gestione posizione
     position = -1;
     oldest_position = 0;
 }
@@ -44,13 +46,13 @@ double LidarDriver::get_distance(double angle) // ritorna la lettura corrisponde
     return buffer[position][round_angle(angle) * (1 / angular_resolution_)];
 }
 
-int LidarDriver::update_position(int i)
+int LidarDriver::update_position(int pos)
 {
-    if (i == (BUFFER_DIM - 1))
-        i = 0;
+    if (pos == (BUFFER_DIM - 1))
+        pos = 0;
     else
-        i++;
-    return i;
+        pos++;
+    return pos;
 }
 
 double LidarDriver::round_angle(double angle)
@@ -67,14 +69,12 @@ double LidarDriver::round_angle(double angle)
             closest_angle = i;
         }
     }
-
     return closest_angle;
 }
 
 // helper function
 std::ostream &operator<<(std::ostream &out, const std::vector<double> &scan)
 {
-    // for (double i : last_scan)
     for (int i = 0; i < scan.size(); i++)
         out << "[" << i << "] = " << scan[i] << "\n";
     return out;

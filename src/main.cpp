@@ -4,20 +4,19 @@
 #include <vector>
 #include "LidarDriver.h"
 
-std::vector<double> print_scan(double min, double max, int n)
+std::vector<double> print_scan(double min, double max, int n) // genera array di numeri casuali in un intervallo specificato
 {
     std::random_device rd;
     std::mt19937 gen(rd());
-    std::uniform_real_distribution<double> distribuzione(min, max);
+    std::uniform_real_distribution<double> intervallo(min, max);
     std::vector<double> random_numbers;
 
     for (int i = 0; i < n; ++i)
     {
-        double numero = distribuzione(gen);
-        numero = std::round(numero * 10000.0) / 10000.0;
-        random_numbers.push_back(numero);
+        double n = intervallo(gen);
+        n = std::round(n * 10000.0) / 10000.0;
+        random_numbers.push_back(n);
     }
-
     return random_numbers;
 }
 
@@ -26,76 +25,55 @@ int main()
     // creazione di un oggetto LidarDriver
     LidarDriver default_lidar;
     LidarDriver second_lidar(0.5);
+    // lancia std::invalid_argument
     // LidarDriver error_lidar(1.1);
-    
+
     // riempio il buffer di default_lidar
     for (int i = 0; i < 10; i++)
         default_lidar.new_scan(print_scan(0.0, 2.0, (180.0 / default_lidar.angular_resolution()) + 1));
-    /* mostro gli scan mentre li inserisco
-    {
-        // std::vector<double> scan = print_scan(0.0, 2.0, (180.0 / default_lidar.angular_resolution()) + 1);
-        // std::cout << "Scan del default lidar numero " << i << " : " << scan;
-        // default_lidar.new_scan(scan);
-    }
-    */
 
     // riempio il buffer di second_lidar
     for (int i = 0; i < 10; i++)
         second_lidar.new_scan(print_scan(0.0, 1.0, (180.0 / second_lidar.angular_resolution()) + 1));
-    /* mostro gli scan mentre li inserisco
-    {
-        std::vector<double> scan = print_scan(0.0, 1.0, (180.0 / second_lidar.angular_resolution()) + 1);
-        std::cout << "Scan del second lidar numero " << i << " : " << scan;
-        second_lidar.new_scan(scan);
-    }
-    */
 
     // recupero e stampa della scansione più vecchia di default_lidar
-    // std::vector<double> oldest_scan_1 = default_lidar.get_scan();
-    // std::cout << "default_lidar.get_scan():" << std::endl;
-    // std::cout << oldest_scan_1;
-    
+    std::vector<double> oldest_scan_1 = default_lidar.get_scan();
+    std::cout << "default_lidar.get_scan():" << std::endl;
+    std::cout << oldest_scan_1;
+
     // recupero e stampa della scansione più vecchia di second_lidar
-    // std::vector<double> oldest_scan_2 = second_lidar.get_scan();
-    // std::cout << "second_lidar.get_scan():" << std::endl;
-    // std::cout << oldest_scan_2;
+    std::vector<double> oldest_scan_2 = second_lidar.get_scan();
+    std::cout << "second_lidar.get_scan():" << std::endl;
+    std::cout << oldest_scan_2;
 
     // test funzione circolare del buffer
-    // default_lidar.new_scan(print_scan(0.0, 2.0, (180 / default_lidar.angular_resolution()) + 1));
-    /* mostro lo scan da aggiungere
-    std::vector<double> scan_n = print_scan(0.0, 2.0, (180 / default_lidar.angular_resolution()) + 1);
-    // std::cout << "Scan del default lidar da aggiungere: " << scan_n;
-    // default_lidar.new_scan(scan_n);
-    */
+    default_lidar.new_scan(print_scan(0.0, 2.0, (180 / default_lidar.angular_resolution()) + 1));
 
     // recupero e stampa della scansione più vecchia post buffer test
-    // std::vector<double> oldest_scan_3 = default_lidar.get_scan();
-    // std::cout << "default_lidar.get_scan():" << std::endl;
-    // std::cout << oldest_scan_3;
-    
+    std::vector<double> oldest_scan_3 = default_lidar.get_scan();
+    std::cout << "default_lidar.get_scan():" << std::endl;
+    std::cout << oldest_scan_3;
+
     // recupero della distanza a un angolo specifico di default_lidar
-    // double angle = 10.3;
-    // std::cout << "distanza a " << angle << "°: " << default_lidar.get_distance(angle) << " m" << std::endl;
-    // angle = 10.6;
-    // std::cout << "distanza a " << angle << "°: " << default_lidar.get_distance(angle) << " m" << std::endl;
-    
+    std::cout << "distanza a " << 10.3 << "°: " << default_lidar.get_distance(10.3) << " m" << std::endl;
+    std::cout << "distanza a " << 10.6 << "°: " << default_lidar.get_distance(10.6) << " m" << std::endl;
+
     // recupero della distanza a un angolo specifico di second_lidar
-    // double angle = 10.1;
-    // std::cout << "distanza a " << angle << "°: " << second_lidar.get_distance(angle) << " m" << std::endl;
-    // angle = 10.3;
-    // std::cout << "distanza a " << angle << "°: " << second_lidar.get_distance(angle) << " m" << std::endl;
+    std::cout << "distanza a " << 10.1 << "°: " << second_lidar.get_distance(10.1) << " m" << std::endl;
+    std::cout << "distanza a " << 10.3 << "°: " << second_lidar.get_distance(10.3) << " m" << std::endl;
 
     // pulizia del buffer
-    // default_lidar.clear_buffer();
-    // std::cout << "buffer pulito" << std::endl;
+    default_lidar.clear_buffer();
+    std::cout << "buffer pulito" << std::endl;
+
     // inserisco un nuovo scan dopo la pulizia
-    // std::vector<double> scan_nuovo = print_scan(0.0, 2.0, (180 / default_lidar.angular_resolution()) + 1);
-    // default_lidar.new_scan(scan_nuovo);
-    // std::cout << "Scan nuovo inserito dopo la pulizia totale " << scan_nuovo;
-    // provo ad eliminarlo ( l'unico scan presente )
-    // std::vector<double> oldest_scan_nuovo = default_lidar.get_scan();
-    // std::cout << "default_lidar.get_scan():" << std::endl;
-    // std::cout << oldest_scan_nuovo;
-    
+    std::vector<double> scan_post_clear = print_scan(0.0, 2.0, (180 / default_lidar.angular_resolution()) + 1);
+    default_lidar.new_scan(scan_post_clear);
+    std::cout << "scan_post_clear " << scan_post_clear;
+
+    // provo ad eliminarlo (l'unico scan presente)
+    std::vector<double> oldest_scan_post_clear = default_lidar.get_scan();
+    std::cout << "default_lidar.get_scan():" << std::endl;
+    std::cout << oldest_scan_post_clear;
     return 0;
 }
