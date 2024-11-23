@@ -9,7 +9,7 @@ class LidarDriver
 
 public:
     // constructor
-    LidarDriver(double resolution = DEFAULT_RESOLUTION) : buffer(BUFFER_DIM, std::vector<double>((MAX_RANGE / angular_resolution_) + 1)) {}
+    LidarDriver(double resolution = DEFAULT_RESOLUTION);
 
     // member functions
     void new_scan(std::vector<double> scan);                           // memorizza nel buffer una scansione
