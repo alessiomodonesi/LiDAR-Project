@@ -24,9 +24,9 @@ void LidarDriver::new_scan(std::vector<double> scan) // memorizza nel buffer una
 
 std::vector<double> LidarDriver::get_scan(void) // fornisce in output la scansione più vecchia e la rimuove dal buffer
 {
-    std::vector<double> oldest_scan = buffer[oldest_position]; // salvo
-    buffer[oldest_position].clear();
-    oldest_position = update_position(oldest_position);
+    std::vector<double> oldest_scan = buffer[oldest_position];
+    // buffer[oldest_position].clear();
+    // oldest_position = update_position(oldest_position);
     return oldest_scan;
 }
 
