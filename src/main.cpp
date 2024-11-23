@@ -42,8 +42,8 @@ int main()
     double angle = 90.3;
     std::cout << "distanza a " << angle << "°: " << default_lidar.get_distance(angle) << " m" << std::endl;
 
-    // // pulizia del buffer
-    // default_lidar.clear_buffer();
+    // pulizia del buffer
+    default_lidar.clear_buffer();
     std::cout << "buffer pulito" << std::endl;
     return 0;
 }
