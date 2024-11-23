@@ -75,7 +75,15 @@ double LidarDriver::round_angle(double angle)
 // helper function
 std::ostream &operator<<(std::ostream &out, const std::vector<double> &scan)
 {
-    for (int i = 0; i < scan.size(); i++)
-        out << "[" << i << "] = " << scan[i] << "\n";
+    for (int i = 0; i < scan.size(); ++i)
+    {
+        out << "[" << std::setw(2) << i << "] = " // L'indice è allineato a 2 spazi
+            << std::fixed << std::setprecision(4) // Fissa il numero di decimali a 4
+            << std::setw(7) << scan[i]            // Allinea i valori a 7 spazi
+            << std::endl;
+    }
+
+    // for (int i = 0; i < scan.size(); i++)
+    //     out << "[" << i << "] = " << scan[i] << "\n";
     return out;
 }
