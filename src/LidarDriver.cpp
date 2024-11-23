@@ -16,7 +16,7 @@ void LidarDriver::new_scan(std::vector<double> scan) // memorizza nel buffer una
 {
     if (position != -1 && update_position(position) == oldest_position)
         oldest_position = update_position(oldest_position);
-    
+
     position = update_position(position);
     buffer[position] = scan;
 }
@@ -26,13 +26,13 @@ std::vector<double> LidarDriver::get_scan(void) // fornisce in output la scansio
     std::vector<double> oldest_scan = buffer[oldest_position];
     buffer[oldest_position].clear();
     return oldest_scan;
-} 
+}
 
 void LidarDriver::clear_buffer(void) {} // elimina tutte le scansioni senza restituirle
 
 double LidarDriver::get_distance(double angle) // ritorna la lettura corrispondente a tale angolo
 {
-    return buffer[position][find_closest_angle(angle)]; 
+    return buffer[position][find_closest_angle(angle)];
 }
 
 int LidarDriver::update_position(int i)
