@@ -36,6 +36,7 @@ int main()
     // second_lidar.new_scan(print_scan(0.0, 1.0, (180 / second_lidar.angular_resolution()) + 1));
     std::vector<double> scan_test = print_scan(0.0, 1.0, (180 / second_lidar.angular_resolution()) + 1);
     std::cout << scan_test << std::endl;
+    std::cout << second_lidar.angular_resolution() << std::endl;
 
     // recupero e stampa della scansione più vecchia di default_lidar
     // std::vector<double> oldest_scan_first = default_lidar.get_scan();
