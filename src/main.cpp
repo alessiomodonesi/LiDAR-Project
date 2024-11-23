@@ -33,8 +33,9 @@ int main()
 
     // riempio il buffer di second_lidar
     // for (int i = 0; i < 10; i++)
-    // second_lidar.new_scan(print_scan(0.0, 1.0, (180 / second_lidar.angular_resolution()) + 1));
+    //     second_lidar.new_scan(print_scan(0.0, 1.0, (180 / second_lidar.angular_resolution()) + 1));
     std::vector<double> scan_test = print_scan(0.0, 10.0, (180 / second_lidar.angular_resolution()) + 1);
+    std::cout << second_lidar.angular_resolution() << std::endl;
     std::cout << scan_test << std::endl;
     // std::cout << second_lidar.angular_resolution() << std::endl;
 
