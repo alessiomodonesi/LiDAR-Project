@@ -38,42 +38,42 @@ int main()
 
     // recupero e stampa della scansione più vecchia di default_lidar
     std::vector<double> oldest_scan_1 = default_lidar.get_scan();
-    std::cout << "default_lidar.get_scan():" << std::endl;
-    std::cout << oldest_scan_1;
+    std::cout << "\ndefault_lidar.get_scan():\n"
+              << oldest_scan_1 << std::endl;
 
     // recupero e stampa della scansione più vecchia di second_lidar
     std::vector<double> oldest_scan_2 = second_lidar.get_scan();
-    std::cout << "second_lidar.get_scan():" << std::endl;
-    std::cout << oldest_scan_2;
+    std::cout << "\nsecond_lidar.get_scan():\n"
+              << oldest_scan_2 << std::endl;
 
     // test funzione circolare del buffer
     default_lidar.new_scan(print_scan(0.0, 2.0, (180 / default_lidar.angular_resolution()) + 1));
 
     // recupero e stampa della scansione più vecchia post buffer test
     std::vector<double> oldest_scan_3 = default_lidar.get_scan();
-    std::cout << "default_lidar.get_scan():" << std::endl;
-    std::cout << oldest_scan_3;
+    std::cout << "\ndefault_lidar.get_scan():\n"
+              << oldest_scan_3 << std::endl;
 
     // recupero della distanza a un angolo specifico di default_lidar
-    std::cout << "distanza a " << 10.3 << "°: " << default_lidar.get_distance(10.3) << " m" << std::endl;
-    std::cout << "distanza a " << 10.6 << "°: " << default_lidar.get_distance(10.6) << " m" << std::endl;
+    std::cout << "\ndistanza a " << 10.3 << "°: " << default_lidar.get_distance(10.3) << "m" << std::endl;
+    std::cout << "\ndistanza a " << 10.6 << "°: " << default_lidar.get_distance(10.6) << "m" << std::endl;
 
     // recupero della distanza a un angolo specifico di second_lidar
-    std::cout << "distanza a " << 10.1 << "°: " << second_lidar.get_distance(10.1) << " m" << std::endl;
-    std::cout << "distanza a " << 10.3 << "°: " << second_lidar.get_distance(10.3) << " m" << std::endl;
+    std::cout << "\ndistanza a " << 10.1 << "°: " << second_lidar.get_distance(10.1) << "m" << std::endl;
+    std::cout << "\ndistanza a " << 10.3 << "°: " << second_lidar.get_distance(10.3) << "m" << std::endl;
 
     // pulizia del buffer
     default_lidar.clear_buffer();
-    std::cout << "buffer pulito" << std::endl;
+    std::cout << "\nbuffer pulito" << std::endl;
 
     // inserisco un nuovo scan dopo la pulizia
     std::vector<double> scan_post_clear = print_scan(0.0, 2.0, (180 / default_lidar.angular_resolution()) + 1);
     default_lidar.new_scan(scan_post_clear);
-    std::cout << "scan_post_clear " << scan_post_clear;
+    std::cout << "\nscan_post_clear:" << scan_post_clear << std::endl;
 
     // provo ad eliminarlo (l'unico scan presente)
     std::vector<double> oldest_scan_post_clear = default_lidar.get_scan();
-    std::cout << "default_lidar.get_scan():" << std::endl;
-    std::cout << oldest_scan_post_clear;
+    std::cout << "\ndefault_lidar.get_scan():\n"
+              << oldest_scan_post_clear << std::endl;
     return 0;
 }
