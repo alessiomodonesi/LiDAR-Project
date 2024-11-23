@@ -32,8 +32,10 @@ int main()
     //     default_lidar.new_scan(print_scan(0.0, 2.0, (180 / default_lidar.angular_resolution()) + 1));
 
     // riempio il buffer di second_lidar
-    for (int i = 0; i < 10; i++)
-        second_lidar.new_scan(print_scan(0.0, 1.0, (180 / second_lidar.angular_resolution()) + 1));
+    // for (int i = 0; i < 10; i++)
+    // second_lidar.new_scan(print_scan(0.0, 1.0, (180 / second_lidar.angular_resolution()) + 1));
+    std::vector<double> scan_test = print_scan(0.0, 1.0, (180 / second_lidar.angular_resolution()) + 1);
+    std::cout << scan_test << std::endl;
 
     // recupero e stampa della scansione più vecchia di default_lidar
     // std::vector<double> oldest_scan_first = default_lidar.get_scan();
@@ -41,9 +43,9 @@ int main()
     // std::cout << oldest_scan_first;
 
     // recupero e stampa della scansione più vecchia di second_lidar
-    std::vector<double> oldest_scan_second = second_lidar.get_scan();
-    std::cout << "second_lidar.get_scan():" << std::endl;
-    std::cout << oldest_scan_second;
+    // std::vector<double> oldest_scan_second = second_lidar.get_scan();
+    // std::cout << "second_lidar.get_scan():" << std::endl;
+    // std::cout << oldest_scan_second;
 
     // test funzione circolare del buffer
     // default_lidar.new_scan(print_scan(0.0, 2.0, (180 / default_lidar.angular_resolution()) + 1));
