@@ -26,6 +26,7 @@ int main()
     // creazione di un oggetto LidarDriver
     LidarDriver default_lidar;
     LidarDriver second_lidar(0.5);
+    // LidarDriver error_lidar(1.1);
 
     // riempio il buffer di default_lidar
     for (int i = 0; i < 10; i++)
