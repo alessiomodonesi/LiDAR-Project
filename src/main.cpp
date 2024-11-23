@@ -16,8 +16,8 @@ int main()
     // creazione di un oggetto LidarDriver
     LidarDriver default_lidar;
 
-    // // simulazione di scansioni
-    // std::vector<double> scan1 = print_scan(0, 2, 181);
+    // simulazione di scansioni
+    std::vector<double> scan1 = print_scan(0, 2, 181);
 
     // // aggiunta delle scansioni al buffer
     // default_lidar.new_scan(scan1);
