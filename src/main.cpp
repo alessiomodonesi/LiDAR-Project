@@ -37,22 +37,50 @@ int main()
     std::vector<double> scan8 = print_scan(0.0, 2.0, 181);
     std::vector<double> scan9 = print_scan(0.0, 2.0, 181);
     std::vector<double> scan10 = print_scan(0.0, 2.0, 181);
+    std::vector<double> scan11 = print_scan(0.0, 2.0, 181);
+
+    std::cout << scan1 << std::endl;
+    std::cout << scan2 << std::endl;
+    std::cout << scan3 << std::endl;
+    std::cout << scan4 << std::endl;
+    std::cout << scan5 << std::endl;
+    std::cout << scan6 << std::endl;
+    std::cout << scan7 << std::endl;
+    std::cout << scan8 << std::endl;
+    std::cout << scan9 << std::endl;
+    std::cout << scan10 << std::endl;
+    std::cout << scan11 << std::endl;
 
     // aggiunta delle scansioni al buffer
     default_lidar.new_scan(scan1);
     default_lidar.new_scan(scan2);
+    default_lidar.new_scan(scan3);
+    default_lidar.new_scan(scan4);
+    default_lidar.new_scan(scan5);
+    default_lidar.new_scan(scan6);
+    default_lidar.new_scan(scan7);
+    default_lidar.new_scan(scan8);
+    default_lidar.new_scan(scan9);
+    default_lidar.new_scan(scan10);
 
     // recupero e stampa della scansione più vecchia
     std::vector<double> oldest_scan = default_lidar.get_scan();
-    std::cout << "scansione più vecchia:" << std::endl;
+    std::cout << "1) scansione più vecchia:" << std::endl;
+    std::cout << oldest_scan;
+
+    default_lidar.new_scan(scan11);
+
+    // recupero e stampa della scansione più vecchia
+    std::vector<double> oldest_scan = default_lidar.get_scan();
+    std::cout << "2) scansione più vecchia:" << std::endl;
     std::cout << oldest_scan;
 
     // recupero della distanza a un angolo specifico
-    double angle = 90.3;
-    std::cout << "distanza a " << angle << "°: " << default_lidar.get_distance(angle) << " m" << std::endl;
+    // double angle = 90.3;
+    // std::cout << "distanza a " << angle << "°: " << default_lidar.get_distance(angle) << " m" << std::endl;
 
     // pulizia del buffer
-    default_lidar.clear_buffer();
-    std::cout << "buffer pulito" << std::endl;
+    // default_lidar.clear_buffer();
+    // std::cout << "buffer pulito" << std::endl;
     return 0;
 }
