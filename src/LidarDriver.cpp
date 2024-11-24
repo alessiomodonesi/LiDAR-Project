@@ -23,7 +23,7 @@ void LidarDriver::new_scan(std::vector<double> scan)
     last_position_ = update_position(last_position_);
 
     if (scan.size() < (RANGE / angular_resolution_) + 1) {}
-    else if (scan.size() > (RANGE / angular_resolution_)) {}
+    else if (scan.size() > (RANGE / angular_resolution_) + 1) {}
     else
         buffer[last_position_] = scan;
 }
