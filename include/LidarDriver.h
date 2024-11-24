@@ -30,9 +30,10 @@ public:
         scansione non è eliminata dal buffer, e se l’angolo richiesto non è disponibile ritorna la
         lettura relativa al valore di angolo più vicino */
     double get_distance(double angle);  
-                                      
-    int last_position(void) const { return last_position_; }              // metodo get implementato in-class
-    double angular_resolution(void) const { return angular_resolution_; } // metodo get implementato in-class
+
+    // GETTER METHODS, implementation in-class                    
+    int last_position(void) const { return last_position_; }
+    double angular_resolution(void) const { return angular_resolution_; }
 
 private:
     int last_position_{-1};                   // posizione della scansione più recente
