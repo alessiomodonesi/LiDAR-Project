@@ -34,7 +34,8 @@ public:
     // GETTER METHODS, in-class implementation                    
     int last_position(void) const { return last_position_; }
     double angular_resolution(void) const { return angular_resolution_; }
-    std::vector<std::vector<double>> buffer(int position) const { return buffer_[position]; }
+    std::vector<double> buffer(int position) const { return buffer_[last_position_]; }
+    int count_numbers(void);          // conta le cifre per la stampa delle scansioni
 
 private:
     // VARIABLES
@@ -49,7 +50,6 @@ private:
     static constexpr double DEFAULT_RESOLUTION = 1.0; // risoluzione di default
 
     // METHODS
-    int count_numbers(void);          // conta le cifre per la stampa delle scansioni
     int update_position(int pos);     // restituisce correttamente la posizione successiva
     double round_angle(double angle); // trova l'angolo più vicino a quello passato come parametro in get_distance
 };
@@ -57,6 +57,7 @@ private:
 // HELPER FUNCTIONS
 /* L’overloading dell’operator<< che stampa a schermo l’ultima scansione salvata (ma non
 la rimuove dal buffer) */
-std::ostream &operator<<(std::ostream &out, LidarDriver obj);
+std::ostream &operator<<(std::ostream &os, LidarDriver obj);
+std::ostream &operator<<(std::ostream &s, std::vector<double> scan);
 
 #endif // LIDARDRIVER_H
