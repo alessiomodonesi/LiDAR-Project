@@ -13,8 +13,8 @@ public:
 
     // MEMBER FUNCTIONS
     /* La funzione new_scan che accetta uno std::vector<double> contenente una
-        scansione e lo memorizza nel buffer (sovrascrivendo la scansione meno recente se il buffer
-        è pieno). Questa funzione esegue anche il controllo di dimensione: se le letture sono in
+        scansione e lo memorizza nel buffer (sovrascrivendo la scansione meno recente se il buffer è pieno).
+        Questa funzione esegue anche il controllo di dimensione: se le letture sono in
         numero minore del previsto, completa i dati mancanti a 0; se sono in numero maggiore, li taglia */
     void new_scan(std::vector<double> scan);  
 
@@ -26,16 +26,16 @@ public:
     void clear_buffer(void);
 
     /* La funzione get_distance che accetta un angolo espresso in gradi (double) e ritorna la
-        lettura corrispondente a tale angolo nella scansione più recente acquisita dal sensore; tale
-        scansione non è eliminata dal buffer, e se l’angolo richiesto non è disponibile ritorna la
-        lettura relativa al valore di angolo più vicino */
+        lettura corrispondente a tale angolo nella scansione più recente acquisita dal sensore;
+        tale scansione non è eliminata dal buffer, e se l’angolo richiesto non è disponibile
+        ritorna la lettura relativa al valore di angolo più vicino */
     double get_distance(double angle);  
+    int count_numbers(void); // conta le cifre per la stampa delle scansioni
 
-    // GETTER METHODS, in-class implementation                    
+    // GETTER FUNCTIONS, in-class implementation                    
     int last_position(void) const { return last_position_; }
     double angular_resolution(void) const { return angular_resolution_; }
     std::vector<double> buffer(int position) const { return buffer_[last_position_]; }
-    int count_numbers(void);          // conta le cifre per la stampa delle scansioni
 
 private:
     // VARIABLES
@@ -49,15 +49,15 @@ private:
     static constexpr int BUFFER_DIM = 10;             // dimensione del buffer
     static constexpr double DEFAULT_RESOLUTION = 1.0; // risoluzione di default
 
-    // METHODS
+    // FUNCTIONS
     int update_position(int pos);     // restituisce correttamente la posizione successiva
     double round_angle(double angle); // trova l'angolo più vicino a quello passato come parametro in get_distance
 };
 
 // HELPER FUNCTIONS
-/* L’overloading dell’operator<< che stampa a schermo l’ultima scansione salvata (ma non
-la rimuove dal buffer) */
+/* L’overloading dell’operator<< che stampa a schermo l’ultima scansione salvata
+    (ma non la rimuove dal buffer) */
 std::ostream &operator<<(std::ostream &os, LidarDriver obj);
-std::ostream &operator<<(std::ostream &s, std::vector<double> scan);
+std::ostream &operator<<(std::ostream &os, std::vector<double> scan);
 
 #endif // LIDARDRIVER_H

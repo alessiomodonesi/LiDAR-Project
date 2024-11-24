@@ -41,12 +41,12 @@ int main(int argc, char *argv[])
 
     // recupero e stampa della scansione più vecchia di default_lidar
     std::vector<double> oldest_scan_1 = default_lidar.get_scan();
-    std::cout << "\ndefault_lidar.get_scan():\n";
+    std::cout << "\ndefault_lidar.get_scan():\n" << std::endl;
     std::cout << oldest_scan_1 << std::endl;
 
     // recupero e stampa della scansione più vecchia di second_lidar
     std::vector<double> oldest_scan_2 = second_lidar.get_scan();
-    std::cout << "\nsecond_lidar.get_scan():\n";
+    std::cout << "\nsecond_lidar.get_scan():\n" << std::endl;
     std::cout << oldest_scan_2 << std::endl;
 
     // test funzione circolare del buffer
@@ -54,7 +54,7 @@ int main(int argc, char *argv[])
 
     // recupero e stampa della scansione più vecchia post buffer-testing
     std::vector<double> oldest_scan_3 = default_lidar.get_scan();
-    std::cout << "\ndefault_lidar.get_scan():\n";
+    std::cout << "\ndefault_lidar.get_scan():\n" << std::endl;
     std::cout << oldest_scan_3 << std::endl;
 
     // recupero della distanza ad un angolo specifico di default_lidar
@@ -72,14 +72,15 @@ int main(int argc, char *argv[])
     // inserimento di una nuova scansione dopo la pulizia del buffer
     std::vector<double> post_clear_scan = print_scan(0.0, 2.0, (180 / default_lidar.angular_resolution()) + 1);
     default_lidar.new_scan(post_clear_scan);
-    std::cout << "\nscan_post_clear:\n";
+    std::cout << "\nscan_post_clear:\n" << std::endl;
     std::cout << post_clear_scan << std::endl;
-              
-    std::cout << default_lidar;
+    
+    // stampa di un oggetto di tipo LidarDriver
+    std::cout << default_lidar << std::endl;
 
-    // provo ad eliminarlo (l'unico scan presente)
+    // provo ad eliminarlo (unico scan presente)
     std::vector<double> oldest_post_clear_scan = default_lidar.get_scan();
-    std::cout << "\ndefault_lidar.get_scan():\n";
+    std::cout << "\ndefault_lidar.get_scan():\n" << std::endl;
     std::cout << oldest_post_clear_scan << std::endl;
     return 0;
 }

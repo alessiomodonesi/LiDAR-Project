@@ -67,7 +67,7 @@ double LidarDriver::get_distance(double angle)
     return buffer_[last_position_][round_angle(angle) * (1 / angular_resolution_)];
 }
 
-// PRIVATE METHODS
+// PRIVATE FUNCTIONS
 int LidarDriver::count_numbers(void) {
     return static_cast<int>(std::log10(std::abs((RANGE / angular_resolution_) + 1))) + 1;
 }
