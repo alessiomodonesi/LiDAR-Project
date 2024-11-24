@@ -31,9 +31,10 @@ public:
         lettura relativa al valore di angolo più vicino */
     double get_distance(double angle);  
 
-    // GETTER METHODS, implementation in-class                    
+    // GETTER METHODS, in-class implementation                    
     int last_position(void) const { return last_position_; }
     double angular_resolution(void) const { return angular_resolution_; }
+    std::vector<std::vector<double>> buffer(void) const { return buffer_; }
 
 private:
     int last_position_{-1};                   // posizione della scansione più recente
@@ -52,6 +53,6 @@ private:
 // HELPER FUNCTIONS
 /* L’overloading dell’operator<< che stampa a schermo l’ultima scansione salvata (ma non
 la rimuove dal buffer) */
-std::ostream &operator<<(std::ostream &out, std::vector<std::vector<double>> &buffer);
+std::ostream &operator<<(std::ostream &out, LidarDriver obj);
 
 #endif // LIDARDRIVER_H
