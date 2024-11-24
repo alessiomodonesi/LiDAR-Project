@@ -16,7 +16,7 @@ std::vector<double> print_scan(double min, double max, int n)
     for (int i = 0; i < n; ++i)
     {
         double n = intervallo(gen);
-        n = std::round(n * 10000.0) / 10000.0;
+        n = std::round(n * 100.0) / 100.0;
         random_numbers.push_back(n);
     }
     return random_numbers;
