@@ -1,0 +1,28 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+../include/LidarDriver.h
+iostream
+-
+vector
+-
+
+/home/LiDAR-Project/src/main.cpp
+iostream
+-
+iomanip
+-
+random
+-
+vector
+-
+cmath
+-
+LidarDriver.h
+/home/LiDAR-Project/src/LidarDriver.h
+
