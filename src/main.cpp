@@ -97,5 +97,34 @@ int main(int argc, char *argv[])
     std::vector<double> oldest_post_clear_scan = default_lidar.get_scan();
     std::cout << "\ndefault_lidar.get_scan():\n" << std::endl;
     std::cout << oldest_post_clear_scan << std::endl;
+    
+    
+    // test in cui ci sono meno valori
+    default_lidar.new_scan(print_scan(0.0, 2.0, 134));
+    std::vector<double> incomplete_scan = default_lidar.get_scan();
+    std::cout << "\ndefault_lidar.get_scan():\n" << std::endl;
+    std::cout << incomplete_scan << std::endl;
+    
+    // test in cui ci sono troppi valori
+    default_lidar.new_scan(print_scan(0.0, 2.0, 201));
+    std::vector<double> too_much_value = default_lidar.get_scan();
+    std::cout << "\ndefault_lidar.get_scan():\n" << std::endl;
+    std::cout << too_much_value << std::endl;
+    
+    // test in cui ci sono anche valori negativi
+    std::vector<double> negative_value = print_scan(-0.5, 2.0, (180.0 / default_lidar.angular_resolution()) + 1);
+    int count_negative_value = 0;
+    for (int i = 0; i < negative_value.size(); i++)
+        if (negative_value[i] < 0)
+            count_negative_value++;
+    std::cout << "\nvettore con valori negativi\n" << std::endl;
+    std::cout << negative_value;
+    std::cout << "\nnumero negativi: " << count_negative_value << "\n";
+    default_lidar.new_scan(negative_value);
+    std::vector<double> s = default_lidar.get_scan();
+    std::cout << "\ndefault_lidar.get_scan():\n" << std::endl;
+    std::cout << s << std::endl;
+    
+    
     return 0;
 }

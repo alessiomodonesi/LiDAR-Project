@@ -20,9 +20,11 @@ void LidarDriver::new_scan(std::vector<double> scan)
 {
     // controllo il numero di valori negativi nella scansione
     int count_errors = 0;
-    for (double i : scan){
-        if (i < 0){
-            scan[i] = 0; // imposto a 0 il valore negativo
+    for (int i = 0; i < scan.size(); i++)
+    {
+        if (scan[i] < 0.0)
+        {
+            scan[i] = 0.0; // imposto a 0 il valore negativo
             count_errors++;
         }
     }
