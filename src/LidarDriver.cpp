@@ -18,17 +18,26 @@ LidarDriver::LidarDriver(double resolution)
 // MEMBER FUNCTIONS
 void LidarDriver::new_scan(std::vector<double> scan)
 {
+    // controllo il numero di valori negativi nella scansione
+    int count_errors = 0;
+    for (double i : scan){
+        if (i < 0){
+            scan[i] = 0; // imposto a 0 il valore negativo
+            count_errors++;
+        }
+    }
+    
+    // se gli errori di rilevamento sono troppi invalido la scansione
+    if (count_errors  (RANGE / angular_resolution_) / 4)
+        throw std::invalid_argument("found a invalid value, please check the correct positioning of the sensor");
+
+    // altrimenti gestisco le posizioni e ...
     if (last_position_ != -1 && update_position(last_position_) == oldest_position_)
         oldest_position_ = update_position(oldest_position_);
 
     last_position_ = update_position(last_position_);
 
-    // check scan values
-    for (double i: scan){
-        if (i < 0)
-            throw std::invalid_argument("found a invalid value, please check the correct positioning of the sensor");
-    }
-
+    // ... controllo il numero di valore contenuti nella scansione
     if (scan.size() < (RANGE / angular_resolution_) + 1)
     {
         int i = 0;
@@ -111,18 +120,6 @@ std::ostream &operator<<(std::ostream &os, LidarDriver obj)
     for (int i = 0; i < scan.size(); ++i)
     {
         os << "[" << std::setw(obj.count_numbers()) << i << "] = "
-            << std::fixed << std::setprecision(2)
-            << std::setw(7) << scan[i]
-            << std::endl;
-    }
-    return os;
-}
-
-std::ostream &operator<<(std::ostream &os, std::vector<double> scan)
-{
-    for (int i = 0; i < scan.size(); ++i)
-    {
-        os << "[" << std::setw(3) << i << "] = "
             << std::fixed << std::setprecision(2)
             << std::setw(7) << scan[i]
             << std::endl;

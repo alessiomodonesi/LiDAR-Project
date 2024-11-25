@@ -58,6 +58,5 @@ private:
 /* L’overloading dell’operator<< che stampa a schermo l’ultima scansione salvata
     (ma non la rimuove dal buffer) */
 std::ostream &operator<<(std::ostream &os, LidarDriver obj);
-std::ostream &operator<<(std::ostream &os, std::vector<double> scan);
 
 #endif // LIDARDRIVER_H

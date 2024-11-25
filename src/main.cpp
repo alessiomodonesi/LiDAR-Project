@@ -22,6 +22,19 @@ std::vector<double> print_scan(double min, double max, int n)
     }
     return random_numbers;
 }
+ 
+// overload dell'operator per facilitare la fase di testing
+std::ostream &operator<<(std::ostream &os, std::vector<double> array)
+{
+    for (int i = 0; i < array.size(); ++i)
+    {
+        os << "[" << std::setw(3) << i << "] = "
+            << std::fixed << std::setprecision(2)
+            << std::setw(7) << array[i]
+            << std::endl;
+    }
+    return os;
+}
 
 int main(int argc, char *argv[])
 {
