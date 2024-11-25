@@ -23,6 +23,12 @@ void LidarDriver::new_scan(std::vector<double> scan)
 
     last_position_ = update_position(last_position_);
 
+    // check scan values
+    for (double i: scan){
+        if (i < 0)
+            throw std::invalid_value("found a invalid value, please check the correct positioning of the sensor");
+    }
+
     if (scan.size() < (RANGE / angular_resolution_) + 1)
     {
         int i = 0;
