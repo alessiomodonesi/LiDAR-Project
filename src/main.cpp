@@ -26,9 +26,10 @@ std::vector<double> print_scan(double min, double max, int n)
 // overload dell'operator per facilitare la fase di testing
 std::ostream &operator<<(std::ostream &os, std::vector<double> array)
 {
+    int numbers = static_cast<int>(std::log10(std::abs(array.size()))) + 1;
     for (int i = 0; i < array.size(); ++i)
     {
-        os << "[" << std::setw(3) << i << "] = "
+        os << "[" << std::setw(numbers) << i << "] = "
             << std::fixed << std::setprecision(2)
             << std::setw(7) << array[i]
             << std::endl;
