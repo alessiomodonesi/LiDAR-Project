@@ -28,8 +28,8 @@ void LidarDriver::new_scan(std::vector<double> scan)
     }
     
     // se gli errori di rilevamento sono troppi invalido la scansione
-    if (count_errors  (RANGE / angular_resolution_) / 4)
-        throw std::invalid_argument("found a invalid value, please check the correct positioning of the sensor");
+    if (count_errors > (RANGE / angular_resolution_) / 4)
+        throw std::invalid_argument("too many incorrect values, invalid scan");
 
     // altrimenti gestisco le posizioni e ...
     if (last_position_ != -1 && update_position(last_position_) == oldest_position_)
