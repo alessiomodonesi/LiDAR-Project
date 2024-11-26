@@ -97,7 +97,7 @@ int main(int argc, char *argv[])
     std::cout << "vector con troppi valori\n" << too_much_value << std::endl;
     LidarDriver blocco4_lidar;
     blocco4_lidar.new_scan(too_much_value);
-    std::cout << "caso in cui scan contiene più valori del dovuto" << blocco4_lidar << std::endl;
+    std::cout << "caso in cui scan contiene più valori del dovuto\n" << blocco4_lidar << std::endl;
     
 
     // ------------------------ BLOCCO TEST 5 ------------------------
