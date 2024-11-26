@@ -62,7 +62,7 @@ int main(int argc, char *argv[])
 
     // ------------------------ BLOCCO TEST 2 ------------------------
 
-    // pulizia del buffer
+    /* // pulizia del buffer
     default_lidar.clear_buffer();
     std::cout << "buffer pulito" << std::endl;
 
@@ -76,23 +76,23 @@ int main(int argc, char *argv[])
 
     // prova di eliminazione dello scan inserito post buffer clear
     std::vector<double> oldest_post_clear_scan = default_lidar.get_scan();
-    std::cout << "prova di eliminazione della scansione inserita post buffer-clear: \n" << oldest_post_clear_scan << std::endl;
+    std::cout << "prova di eliminazione della scansione inserita post buffer-clear: \n" << oldest_post_clear_scan << std::endl; */
 
     // ------------------------ BLOCCO TEST 3 ------------------------
 
-    // // caso in cui scan contiene meno valori del dovuto
-    // std::vector<double> incomplete_scan = print_scan(0.0, 2.0, 134);
-    // std::cout << "vector sotto-dimensionato: \n" << incomplete_scan << std::endl;
-    // LidarDriver blocco3_lidar;
-    // blocco3_lidar.new_scan(incomplete_scan);
-    // std::cout << "caso con scansione sotto-dimensionata: \n" << blocco3_lidar << std::endl;
+    // caso in cui scan contiene meno valori del dovuto
+    std::vector<double> incomplete_scan = print_scan(0.0, 2.0, 134);
+    std::cout << "vector sotto-dimensionato: \n" << incomplete_scan << std::endl;
+    LidarDriver blocco3_lidar;
+    blocco3_lidar.new_scan(incomplete_scan);
+    std::cout << "caso con scansione sotto-dimensionata: \n" << blocco3_lidar << std::endl;
 
-    // // caso in cui scan contiene più valori del dovuto
-    // std::vector<double> too_much_value = print_scan(0.0, 2.0, 201);
-    // std::cout << "vector sovra-dimensionato: \n" << too_much_value << std::endl;
-    // LidarDriver blocco4_lidar;
-    // blocco4_lidar.new_scan(too_much_value);
-    // std::cout << "caso con scansione sovra-dimensionata: \n" << blocco4_lidar << std::endl;
+    // caso in cui scan contiene più valori del dovuto
+    std::vector<double> too_much_value = print_scan(0.0, 2.0, 201);
+    std::cout << "vector sovra-dimensionato: \n" << too_much_value << std::endl;
+    LidarDriver blocco4_lidar;
+    blocco4_lidar.new_scan(too_much_value);
+    std::cout << "caso con scansione sovra-dimensionata: \n" << blocco4_lidar << std::endl;
 
     // ------------------------ BLOCCO TEST 5 ------------------------
 
