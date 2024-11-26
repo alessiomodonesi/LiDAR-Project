@@ -6,38 +6,6 @@
 
 #include "LidarDriver.h"
 
-// genera array di numeri casuali in un intervallo specificato
-std::vector<double> print_scan(double min, double max, int n)
-{
-    std::random_device rd;
-    std::mt19937 gen(rd());
-    std::uniform_real_distribution<double> intervallo(min, max);
-    std::vector<double> random_numbers;
-
-    for (int i = 0; i < n; ++i)
-    {
-        double n = intervallo(gen);
-        n = std::round(n * 100.0) / 100.0;
-        random_numbers.push_back(n);
-    }
-    return random_numbers;
-}
- 
-// overload dell'operator per facilitare la fase di testing
-std::ostream &operator<<(std::ostream &os, const std::vector<double> array)
-{
-    int size = array.size();
-    int numbers = static_cast<int>(std::log10(std::abs(size))) + 1;
-    for (int i = 0; i < array.size(); ++i)
-    {
-        os << "[" << std::setw(numbers) << i << "] = "
-            << std::fixed << std::setprecision(2)
-            << std::setw(4) << array[i]
-            << std::endl;
-    }
-    return os;
-}
-
 int main(int argc, char *argv[])
 {
     // creazione di un oggetto LidarDriver
@@ -113,6 +81,7 @@ int main(int argc, char *argv[])
 
     // ------------------------ BLOCCO TEST 3 ------------------------
 
+    /*
     // caso in cui scan contiene meno valori del dovuto
     std::vector<double> incomplete_scan = print_scan(0.0, 2.0, 134);
     std::cout << "vector incompleto\n" << incomplete_scan << std::endl;
@@ -126,7 +95,7 @@ int main(int argc, char *argv[])
     LidarDriver blocco4_lidar;
     blocco4_lidar.new_scan(too_much_value);
     std::cout << "caso in cui scan contiene più valori del dovuto\n" << blocco4_lidar << std::endl;
-
+    */
 
     // ------------------------ BLOCCO TEST 5 ------------------------
 
@@ -147,4 +116,36 @@ int main(int argc, char *argv[])
     */
 
     return 0;
+}
+
+// genera array di numeri casuali in un intervallo specificato
+std::vector<double> print_scan(double min, double max, int n)
+{
+    std::random_device rd;
+    std::mt19937 gen(rd());
+    std::uniform_real_distribution<double> intervallo(min, max);
+    std::vector<double> random_numbers;
+
+    for (int i = 0; i < n; ++i)
+    {
+        double n = intervallo(gen);
+        n = std::round(n * 100.0) / 100.0;
+        random_numbers.push_back(n);
+    }
+    return random_numbers;
+}
+ 
+// overload dell'operator per facilitare la fase di testing
+std::ostream &operator<<(std::ostream &os, const std::vector<double> array)
+{
+    int size = array.size();
+    int numbers = static_cast<int>(std::log10(std::abs(size))) + 1;
+    for (int i = 0; i < array.size(); ++i)
+    {
+        os << "[" << std::setw(numbers) << i << "] = "
+            << std::fixed << std::setprecision(2)
+            << std::setw(4) << array[i]
+            << std::endl;
+    }
+    return os;
 }
