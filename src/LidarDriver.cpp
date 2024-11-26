@@ -90,8 +90,7 @@ int LidarDriver::count_numbers(void) {
 
 int LidarDriver::update_position(int position)
 {
-    if (position == (BUFFER_DIM - 1))
-        position = 0 : position++;
+    (position == (BUFFER_DIM - 1)) ? position = 0 : position++;
     return position;
 }
 
