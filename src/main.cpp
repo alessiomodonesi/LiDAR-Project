@@ -67,7 +67,7 @@ int main(int argc, char *argv[])
     
     // pulizia del buffer
     default_lidar.clear_buffer();
-    std::cout << "\nbuffer pulito" << std::endl;
+    std::cout << "buffer pulito" << std::endl;
 
     // inserimento di una nuova scansione dopo la pulizia del buffer
     std::vector<double> post_clear_scan = print_scan(0.0, 2.0, (180 / default_lidar.angular_resolution()) + 1);
@@ -79,7 +79,7 @@ int main(int argc, char *argv[])
 
     // prova di eliminazione dello scan inserito post buffer clear
     std::vector<double> oldest_post_clear_scan = default_lidar.get_scan();
-    std::cout << "prova di eliminazione dello scan inserito post buffer clear\n" << oldest_post_clear_scan << std::endl;
+    std::cout << "prova di eliminazione dello scan inserito post buffer clear" << oldest_post_clear_scan << std::endl;
     
 
     // ------------------------ BLOCCO TEST 3 ------------------------
