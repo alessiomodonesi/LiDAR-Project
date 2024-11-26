@@ -62,6 +62,9 @@ void LidarDriver::new_scan(std::vector<double> scan)
 
 std::vector<double> LidarDriver::get_scan(void)
 {
+    if (buffer_.empty())
+        throw std::invalid_argument("the buffer is empty");
+
     std::vector<double> oldest_scan = buffer_[oldest_position_];
     buffer_[oldest_position_].clear();
     oldest_position_ = update_position(oldest_position_);
