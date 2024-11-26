@@ -120,8 +120,8 @@ double LidarDriver::round_angle(double angle)
 // HELPER FUNCTIONS
 std::ostream &operator<<(std::ostream &os, LidarDriver obj)
 {
-    try
-    {
+    // try
+    // {
         std::vector<double> scan = obj.buffer(obj.last_position());
         for (int i = 0; i < scan.size(); ++i)
         {
@@ -131,9 +131,9 @@ std::ostream &operator<<(std::ostream &os, LidarDriver obj)
                 << std::endl;
         }
         return os;
-    } 
-    catch(std::invalid_argument e)
-    {
-        return os << e << std::endl;
-    }
+    // } 
+    // catch(std::invalid_argument e)
+    // {
+    //     return os << "the buffer is empty" << std::endl;
+    // }
 }
