@@ -54,8 +54,8 @@ int main(int argc, char *argv[])
     // std::cout << default_lidar << std::endl;
 
     // riempimento del buffer di default_lidar
-    for (int i = 0; i < 10; i++)
-        default_lidar.new_scan(print_scan(0.0, 2.0, (180.0 / default_lidar.angular_resolution()) + 1));
+    // for (int i = 0; i < 10; i++)
+    //     default_lidar.new_scan(print_scan(0.0, 2.0, (180.0 / default_lidar.angular_resolution()) + 1));
 
     // riempimento del buffer di second_lidar
     for (int i = 0; i < 10; i++)
@@ -114,7 +114,6 @@ int main(int argc, char *argv[])
     // ------------------------ BLOCCO TEST 3 ------------------------
 
     // caso in cui scan contiene meno valori del dovuto
-    default_lidar.clear_buffer();
     std::vector<double> incomplete_scan = print_scan(0.0, 2.0, 134);
     std::cout << "vector incompleto\n" << incomplete_scan << std::endl;
     default_lidar.new_scan(incomplete_scan);
