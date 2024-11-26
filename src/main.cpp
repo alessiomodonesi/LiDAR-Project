@@ -46,6 +46,9 @@ int main(int argc, char *argv[])
     // lancia std::invalid_argument
     // LidarDriver error_lidar(1.1);
 
+    // chiamata a get_scan() ma il buffer è vuoto
+    std::vector<double> empty_buffer = default_lidar.get_scan();
+
     // riempimento del buffer di default_lidar
     for (int i = 0; i < 10; i++)
         default_lidar.new_scan(print_scan(0.0, 2.0, (180.0 / default_lidar.angular_resolution()) + 1));
