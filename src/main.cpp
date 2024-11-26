@@ -53,13 +53,13 @@ int main(int argc, char *argv[])
     // stampa di un oggetto di tipo LidarDriver vuoto, LANCIA STD::BAD_ALLOC
     // std::cout << default_lidar << std::endl;
 
-    // riempimento del buffer di default_lidar
-    for (int i = 0; i < 10; i++)
-        default_lidar.new_scan(print_scan(0.0, 2.0, (180.0 / default_lidar.angular_resolution()) + 1));
+    // // riempimento del buffer di default_lidar
+    // for (int i = 0; i < 10; i++)
+    //     default_lidar.new_scan(print_scan(0.0, 2.0, (180.0 / default_lidar.angular_resolution()) + 1));
 
-    // riempimento del buffer di second_lidar
-    for (int i = 0; i < 10; i++)
-        second_lidar.new_scan(print_scan(0.0, 1.0, (180.0 / second_lidar.angular_resolution()) + 1));
+    // // riempimento del buffer di second_lidar
+    // for (int i = 0; i < 10; i++)
+    //     second_lidar.new_scan(print_scan(0.0, 1.0, (180.0 / second_lidar.angular_resolution()) + 1));
 
     // ------------------------ BLOCCO TEST 1 ------------------------
 
@@ -113,18 +113,19 @@ int main(int argc, char *argv[])
 
     // ------------------------ BLOCCO TEST 3 ------------------------
 
-    // // caso in cui scan contiene meno valori del dovuto
-    default_lidar.clear_buffer();
+    // caso in cui scan contiene meno valori del dovuto
     std::vector<double> incomplete_scan = print_scan(0.0, 2.0, 134);
     std::cout << "vector incompleto\n" << incomplete_scan << std::endl;
     default_lidar.new_scan(incomplete_scan);
     incomplete_scan = default_lidar.get_scan();
     std::cout << "caso in cui scan contiene meno valori del dovuto\n" << incomplete_scan << std::endl;
     
-    // // caso in cui scan contiene più valori del dovuto
-    // default_lidar.new_scan(print_scan(0.0, 2.0, 201));
-    // std::vector<double> too_much_value = default_lidar.get_scan();
-    // std::cout << "caso in cui scan contiene più valori del dovuto\n" << too_much_value << std::endl;
+    // caso in cui scan contiene più valori del dovuto
+    std::vector<double> too_much_value = print_scan(0.0, 2.0, 201);
+    std::cout << "vector con troppi valori\n" << too_much_value << std::endl;
+    default_lidar.new_scan(too_much_value);
+    too_much_value = default_lidar.get_scan();
+    std::cout << "caso in cui scan contiene più valori del dovuto\n" << too_much_value << std::endl;
     
     // ------------------------ BLOCCO TEST 4 ------------------------
 
