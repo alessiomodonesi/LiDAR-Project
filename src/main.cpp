@@ -33,11 +33,11 @@ int main(int argc, char *argv[])
         second_lidar.new_scan(print_scan(0.0, 1.0, (180.0 / second_lidar.angular_resolution()) + 1));
 
     // recupero della distanza ad un angolo errato, LANCIA STD::INVALID_ARGUMENT
-    std::cout << "\ndistanza a " << 181.0 << "°: " << default_lidar.get_distance(181.0) << "m" << std::endl;
+    // std::cout << "\ndistanza a " << 181.0 << "°: " << default_lidar.get_distance(181.0) << "m" << std::endl;
 
     // ------------------------ BLOCCO TEST 1 ------------------------
 
-    /*
+    
     // recupero e stampa della scansione più vecchia di default_lidar
     std::vector<double> oldest_scan_1 = default_lidar.get_scan();
     std::cout << "\nrecupero e stampa della scansione più vecchia di default_lidar\n" << oldest_scan_1 << std::endl;
@@ -60,8 +60,7 @@ int main(int argc, char *argv[])
     // recupero della distanza ad un angolo specifico di second_lidar
     std::cout << "\ndistanza a " << 10.1 << "°: " << second_lidar.get_distance(10.1) << " m" << std::endl;
     std::cout << "\ndistanza a " << 10.3 << "°: " << second_lidar.get_distance(10.3) << " m" << std::endl;
-
-    */
+    
 
     // ------------------------ BLOCCO TEST 2 ------------------------
 
