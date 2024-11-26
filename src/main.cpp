@@ -116,7 +116,7 @@ int main(int argc, char *argv[])
     // // caso in cui scan contiene meno valori del dovuto
     default_lidar.clear_buffer();
     std::vector<double> incomplete_scan = print_scan(0.0, 2.0, 134);
-    std::cout << incomplete_scan << std::endl;
+    std::cout << "vector incompleto\n" << incomplete_scan << std::endl;
     default_lidar.new_scan(incomplete_scan);
     incomplete_scan = default_lidar.get_scan();
     std::cout << "caso in cui scan contiene meno valori del dovuto\n" << incomplete_scan << std::endl;
