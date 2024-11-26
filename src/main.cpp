@@ -84,7 +84,7 @@ int main(int argc, char *argv[])
 
     // ------------------------ BLOCCO TEST 3 ------------------------
 
-    
+    /*
     // caso in cui scan contiene meno valori del dovuto
     std::vector<double> incomplete_scan = print_scan(0.0, 2.0, 134);
     std::cout << "vector incompleto\n" << incomplete_scan << std::endl;
@@ -97,12 +97,12 @@ int main(int argc, char *argv[])
     std::cout << "vector con troppi valori\n" << too_much_value << std::endl;
     LidarDriver blocco4_lidar;
     blocco4_lidar.new_scan(too_much_value);
-    std::cout << "caso in cui scan contiene più valori del dovuto\n" << blocco4_lidar << std::endl;
-    
+    std::cout << "caso in cui scan contiene più valori del dovuto" << blocco4_lidar << std::endl;
+    */
 
     // ------------------------ BLOCCO TEST 5 ------------------------
 
-    /*
+    
     // caso in cui scan contiene anche valori negativi
     default_lidar.clear_buffer();
     std::vector<double> negative_value = print_scan(-0.5, 2.0, (180.0 / default_lidar.angular_resolution()) + 1);
@@ -116,7 +116,7 @@ int main(int argc, char *argv[])
     default_lidar.new_scan(negative_value);
     std::vector<double> s = default_lidar.get_scan();
     std::cout << "caso in cui scan contiene anche valori negativi" << s << std::endl;
-    */
+    
 
     // ------------------------ FINE TEST ------------------------
     return 0;
