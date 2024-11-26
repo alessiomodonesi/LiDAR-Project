@@ -104,7 +104,7 @@ int main(int argc, char *argv[])
         if (negative_value[i] < 0)
             count_negative_value++;
 
-    std::cout << "vector con " << count_negative_value << "valori negativi: \n" << negative_value << std::endl;
+    std::cout << "vector con " << count_negative_value << " valori negativi: \n" << negative_value << std::endl;
     default_lidar.new_scan(negative_value);
     std::cout << "caso con scansione con valori negativi: \n" << default_lidar << std::endl;
     
