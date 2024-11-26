@@ -109,11 +109,11 @@ int main(int argc, char *argv[])
     
     // ------------------------ BLOCCO TEST 3 ------------------------
 
-    // caso in cui scan contiene meno valori del dovuto
-    default_lidar.clear_buffer();
-    default_lidar.new_scan(print_scan(0.0, 2.0, 134));
-    std::vector<double> incomplete_scan = default_lidar.get_scan();
-    std::cout << "caso in cui scan contiene meno valori del dovuto\n" << incomplete_scan << std::endl;
+    // // caso in cui scan contiene meno valori del dovuto
+    // default_lidar.clear_buffer();
+    // default_lidar.new_scan(print_scan(0.0, 2.0, 134));
+    // std::vector<double> incomplete_scan = default_lidar.get_scan();
+    // std::cout << "caso in cui scan contiene meno valori del dovuto\n" << incomplete_scan << std::endl;
     
     // // caso in cui scan contiene più valori del dovuto
     // default_lidar.new_scan(print_scan(0.0, 2.0, 201));
@@ -122,17 +122,17 @@ int main(int argc, char *argv[])
     
     // ------------------------ BLOCCO TEST 4 ------------------------
 
-    // // caso in cui scan contiene anche valori negativi
-    // std::vector<double> negative_value = print_scan(-0.5, 2.0, (180.0 / default_lidar.angular_resolution()) + 1);
-    // int count_negative_value = 0;
-    // for (int i = 0; i < negative_value.size(); i++)
-    //     if (negative_value[i] < 0)
-    //         count_negative_value++;
+    // caso in cui scan contiene anche valori negativi
+    std::vector<double> negative_value = print_scan(-0.5, 2.0, (180.0 / default_lidar.angular_resolution()) + 1);
+    int count_negative_value = 0;
+    for (int i = 0; i < negative_value.size(); i++)
+        if (negative_value[i] < 0)
+            count_negative_value++;
 
-    // std::cout << "vector con valori negativi\n" << negative_value << std::endl;
-    // std::cout << "totale di valori negativi: " << count_negative_value << "\n" << std::endl;
-    // default_lidar.new_scan(negative_value);
-    // std::vector<double> s = default_lidar.get_scan();
-    // std::cout << "caso in cui scan contiene anche valori negativi\n" << s << std::endl;
+    std::cout << "vector con valori negativi\n" << negative_value << std::endl;
+    std::cout << "totale di valori negativi: " << count_negative_value << "\n" << std::endl;
+    default_lidar.new_scan(negative_value);
+    std::vector<double> s = default_lidar.get_scan();
+    std::cout << "caso in cui scan contiene anche valori negativi\n" << s << std::endl;
     return 0;
 }
