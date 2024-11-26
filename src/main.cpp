@@ -113,24 +113,20 @@ int main(int argc, char *argv[])
 
     // ------------------------ BLOCCO TEST 3 ------------------------
 
-    LidarDriver lidar_diocane;
     // caso in cui scan contiene meno valori del dovuto
     std::vector<double> incomplete_scan = print_scan(0.0, 2.0, 134);
     std::cout << "vector incompleto\n" << incomplete_scan << std::endl;
-    lidar_diocane.new_scan(incomplete_scan);
-    incomplete_scan = lidar_diocane.get_scan();
-    std::cout << "caso in cui scan contiene meno valori del dovuto\n" << incomplete_scan << std::endl;
-    
-    // ------------------------ BLOCCO TEST 4 ------------------------
+    LidarDriver blocco3_lidar;
+    blocco3_lidar.new_scan(incomplete_scan);
+    std::cout << "caso in cui scan contiene meno valori del dovuto\n" << blocco3_lidar << std::endl;
 
-    /*
     // caso in cui scan contiene più valori del dovuto
     std::vector<double> too_much_value = print_scan(0.0, 2.0, 201);
     std::cout << "vector con troppi valori\n" << too_much_value << std::endl;
-    default_lidar.new_scan(too_much_value);
-    too_much_value = default_lidar.get_scan();
-    std::cout << "caso in cui scan contiene più valori del dovuto\n" << too_much_value << std::endl;
-    */
+    LidarDriver blocco4_lidar;
+    blocco4_lidar.new_scan(too_much_value);
+    std::cout << "caso in cui scan contiene più valori del dovuto\n" << blocco4_lidar << std::endl;
+
 
     // ------------------------ BLOCCO TEST 5 ------------------------
 
