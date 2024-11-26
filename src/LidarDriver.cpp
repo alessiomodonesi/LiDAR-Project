@@ -127,7 +127,7 @@ std::ostream &operator<<(std::ostream &os, LidarDriver obj)
         {
             os << "[" << std::setw(obj.count_numbers()) << i << "] = "
                 << std::fixed << std::setprecision(2)
-                << std::setw(7) << scan[i]
+                << std::setw(4) << scan[i]
                 << std::endl;
         }
         return os;
