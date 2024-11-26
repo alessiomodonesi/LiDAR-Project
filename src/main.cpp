@@ -107,7 +107,8 @@ int main(int argc, char *argv[])
     std::vector<double> negative_value = print_scan(-0.5, 2.0, (180.0 / default_lidar.angular_resolution()) + 1);
     int count_negative_value = 0;
     for (int i = 0; i < negative_value.size(); i++)
-        (negative_value[i] < 0) ? count_negative_value++;
+        if (negative_value[i] < 0)
+            count_negative_value++;
 
     std::cout << "\nvector con valori negativi\n" << negative_value << std::endl;
     std::cout << "\nnumero di valori negativi: " << count_negative_value << "\n" << std::endl;
