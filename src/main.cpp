@@ -115,7 +115,7 @@ int main(int argc, char *argv[])
     std::cout << "totale di valori negativi: " << count_negative_value << "\n" << std::endl;
     default_lidar.new_scan(negative_value);
     std::vector<double> s = default_lidar.get_scan();
-    std::cout << "caso in cui scan contiene anche valori negativi" << s << std::endl;
+    std::cout << "caso in cui scan contiene anche valori negativi\n" << s << std::endl;
     
 
     // ------------------------ FINE TEST ------------------------
