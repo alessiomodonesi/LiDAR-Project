@@ -93,7 +93,7 @@ int main(int argc, char *argv[])
 
     // ------------------------ BLOCCO TEST 2 ------------------------
 
-    /*
+    
     // pulizia del buffer
     default_lidar.clear_buffer();
     std::cout << "\nbuffer pulito" << std::endl;
@@ -109,16 +109,16 @@ int main(int argc, char *argv[])
     // prova di eliminazione dello scan inserito post buffer clear
     std::vector<double> oldest_post_clear_scan = default_lidar.get_scan();
     std::cout << "prova di eliminazione dello scan inserito post buffer clear\n" << oldest_post_clear_scan << std::endl;
-    */
+    
 
     // ------------------------ BLOCCO TEST 3 ------------------------
 
     // caso in cui scan contiene meno valori del dovuto
-    default_lidar.clear_buffer();
-    // std::vector<double> incomplete_scan = print_scan(0.0, 2.0, 134);
-    // std::cout << "vector incompleto\n" << incomplete_scan << std::endl;
-    default_lidar.new_scan(print_scan(0.0, 2.0, 134));
-    std::cout << "caso in cui scan contiene meno valori del dovuto\n" << default_lidar << std::endl;
+    std::vector<double> incomplete_scan = print_scan(0.0, 2.0, 134);
+    std::cout << "vector incompleto\n" << incomplete_scan << std::endl;
+    default_lidar.new_scan(incomplete_scan);
+    incomplete_scan = default_lidar.get_scan();
+    std::cout << "caso in cui scan contiene meno valori del dovuto\n" << incomplete_scan << std::endl;
     
     // ------------------------ BLOCCO TEST 4 ------------------------
 
