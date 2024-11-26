@@ -102,10 +102,10 @@ int main(int argc, char *argv[])
     // std::vector<double> oldest_post_clear_scan = default_lidar.get_scan();
     // std::cout << "\nprova di eliminazione dello scan inserito post buffer clear\n" << oldest_post_clear_scan << std::endl;
     
-    // caso in cui scan contiene meno valori del dovuto
-    default_lidar.new_scan(print_scan(0.0, 2.0, 134));
-    std::vector<double> incomplete_scan = default_lidar.get_scan();
-    std::cout << "\ncaso in cui scan contiene meno valori del dovuto\n" << incomplete_scan << std::endl;
+    // // caso in cui scan contiene meno valori del dovuto
+    // default_lidar.new_scan(print_scan(0.0, 2.0, 134));
+    // std::vector<double> incomplete_scan = default_lidar.get_scan();
+    // std::cout << "\ncaso in cui scan contiene meno valori del dovuto\n" << incomplete_scan << std::endl;
     
     // caso in cui scan contiene più valori del dovuto
     default_lidar.new_scan(print_scan(0.0, 2.0, 201));
