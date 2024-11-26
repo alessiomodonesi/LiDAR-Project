@@ -32,6 +32,9 @@ int main(int argc, char *argv[])
     for (int i = 0; i < 10; i++)
         second_lidar.new_scan(print_scan(0.0, 1.0, (180.0 / second_lidar.angular_resolution()) + 1));
 
+    // recupero della distanza ad un angolo errato, LANCIA STD::INVALID_ARGUMENT
+    // std::cout << "\ndistanza a " << 181.0 << "°: " << default_lidar.get_distance(181.0) << "m" << std::endl;
+
     // ------------------------ BLOCCO TEST 1 ------------------------
 
     /*
@@ -58,8 +61,6 @@ int main(int argc, char *argv[])
     std::cout << "\ndistanza a " << 10.1 << "°: " << second_lidar.get_distance(10.1) << " m" << std::endl;
     std::cout << "\ndistanza a " << 10.3 << "°: " << second_lidar.get_distance(10.3) << " m" << std::endl;
 
-    recupero della distanza ad un angolo errato, LANCIA STD::INVALID_ARGUMENT
-    std::cout << "\ndistanza a " << 181.0 << "°: " << default_lidar.get_distance(181.0) << "m" << std::endl;
     */
 
     // ------------------------ BLOCCO TEST 2 ------------------------
@@ -118,6 +119,7 @@ int main(int argc, char *argv[])
     std::cout << "caso in cui scan contiene anche valori negativi" << s << std::endl;
     */
 
+    // ------------------------ FINE TEST ------------------------
     return 0;
 }
 

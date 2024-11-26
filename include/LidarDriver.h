@@ -40,18 +40,18 @@ public:
     std::vector<double> buffer(int position) const { return buffer_[last_position_]; }
 
 private:
+    // CONSTANTS
+    static constexpr int RANGE = 180;                 // range massimo del sensore
+    static constexpr int BUFFER_DIM = 10;             // dimensione del buffer
+    static constexpr double DEFAULT_RESOLUTION = 1.0; // risoluzione di default
+
     // VARIABLES
     int last_position_{-1};                   // posizione della scansione più recente
     int oldest_position_{0};                  // posizione della scansione più vecchia
     const double angular_resolution_;         // risoluzione angolare del sensore
     std::vector<std::vector<double>> buffer_; // buffer con vector bidimensionale
 
-    // CONSTANTS
-    static constexpr int RANGE = 180;                 // range massimo del sensore
-    static constexpr int BUFFER_DIM = 10;             // dimensione del buffer
-    static constexpr double DEFAULT_RESOLUTION = 1.0; // risoluzione di default
-
-    // FUNCTIONS
+    // PRIVATE FUNCTIONS
     int update_position(int pos);     // restituisce correttamente la posizione successiva
     double round_angle(double angle); // trova l'angolo più vicino a quello passato come parametro in get_distance
 };
