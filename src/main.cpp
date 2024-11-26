@@ -37,10 +37,10 @@ int main(int argc, char *argv[])
 
     // ------------------------ BLOCCO TEST 1 ------------------------
 
-    
+    /*
     // recupero e stampa della scansione più vecchia di default_lidar
     std::vector<double> oldest_scan_1 = default_lidar.get_scan();
-    std::cout << "\nrecupero e stampa della scansione più vecchia di default_lidar\n" << oldest_scan_1 << std::endl;
+    std::cout << "recupero e stampa della scansione più vecchia di default_lidar\n" << oldest_scan_1 << std::endl;
 
     // recupero e stampa della scansione più vecchia di second_lidar
     std::vector<double> oldest_scan_2 = second_lidar.get_scan();
@@ -60,11 +60,11 @@ int main(int argc, char *argv[])
     // recupero della distanza ad un angolo specifico di second_lidar
     std::cout << "\ndistanza a " << 10.1 << "°: " << second_lidar.get_distance(10.1) << " m" << std::endl;
     std::cout << "\ndistanza a " << 10.3 << "°: " << second_lidar.get_distance(10.3) << " m" << std::endl;
-    
+    */
 
     // ------------------------ BLOCCO TEST 2 ------------------------
 
-    /*
+    
     // pulizia del buffer
     default_lidar.clear_buffer();
     std::cout << "\nbuffer pulito" << std::endl;
@@ -80,7 +80,7 @@ int main(int argc, char *argv[])
     // prova di eliminazione dello scan inserito post buffer clear
     std::vector<double> oldest_post_clear_scan = default_lidar.get_scan();
     std::cout << "prova di eliminazione dello scan inserito post buffer clear\n" << oldest_post_clear_scan << std::endl;
-    */
+    
 
     // ------------------------ BLOCCO TEST 3 ------------------------
 
