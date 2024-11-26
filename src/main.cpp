@@ -123,6 +123,7 @@ int main(int argc, char *argv[])
     // ------------------------ BLOCCO TEST 4 ------------------------
 
     // caso in cui scan contiene anche valori negativi
+    default_lidar.clear_buffer();
     std::vector<double> negative_value = print_scan(-0.5, 2.0, (180.0 / default_lidar.angular_resolution()) + 1);
     int count_negative_value = 0;
     for (int i = 0; i < negative_value.size(); i++)
