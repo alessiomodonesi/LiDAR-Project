@@ -22,7 +22,7 @@ int main(int argc, char *argv[])
     // std::vector<double> empty_buffer = default_lidar.get_scan();
 
     // stampa di un oggetto di tipo LidarDriver vuoto, LANCIA STD::BAD_ALLOC
-    std::cout << default_lidar << std::endl;
+    // std::cout << default_lidar << std::endl;
 
     // riempimento del buffer di default_lidar
     for (int i = 0; i < 10; i++)
@@ -33,7 +33,7 @@ int main(int argc, char *argv[])
         second_lidar.new_scan(print_scan(0.0, 1.0, (180.0 / second_lidar.angular_resolution()) + 1));
 
     // recupero della distanza ad un angolo errato, LANCIA STD::INVALID_ARGUMENT
-    // std::cout << "\ndistanza a " << 181.0 << "°: " << default_lidar.get_distance(181.0) << "m" << std::endl;
+    std::cout << "\ndistanza a " << 181.0 << "°: " << default_lidar.get_distance(181.0) << "m" << std::endl;
 
     // ------------------------ BLOCCO TEST 1 ------------------------
 
