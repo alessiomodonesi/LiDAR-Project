@@ -10,7 +10,8 @@
 LidarDriver::LidarDriver(double resolution)
     : angular_resolution_{resolution}, buffer_(BUFFER_DIM, std::vector<double>((RANGE / angular_resolution_) + 1))
 {
-    (angular_resolution_ < 0.1 || angular_resolution_ > 1.0) ? throw std::invalid_argument("angular resolution must be [0.1°, 1.0°]");
+    if (angular_resolution_ < 0.1 || angular_resolution_ > 1.0)
+        throw std::invalid_argument("angular resolution must be [0.1°, 1.0°]");
     // std::cout << "angular resolution set to: " << angular_resolution_ << "°" << std::endl;
 }
 
@@ -29,10 +30,12 @@ void LidarDriver::new_scan(std::vector<double> scan)
     }
     
     // se gli errori di rilevamento sono troppi invalido la scansione
-    (count_errors > (RANGE / angular_resolution_) / 4) ? throw std::invalid_argument("too many incorrect values, invalid scan");
+    if (count_errors > (RANGE / angular_resolution_) / 4)
+        throw std::invalid_argument("too many incorrect values, invalid scan");
 
     // altrimenti gestisco le posizioni e ...
-    (last_position_ != -1 && update_position(last_position_) == oldest_position_) ? oldest_position_ = update_position(oldest_position_);
+    if (last_position_ != -1 && update_position(last_position_) == oldest_position_)
+        oldest_position_ = update_position(oldest_position_);
     last_position_ = update_position(last_position_);
 
     // ... controllo il numero di valore contenuti nella scansione
@@ -87,7 +90,8 @@ int LidarDriver::count_numbers(void) {
 
 int LidarDriver::update_position(int position)
 {
-    (position == (BUFFER_DIM - 1)) ? position = 0 : position++;
+    if (position == (BUFFER_DIM - 1))
+        position = 0 : position++;
     return position;
 }
 
