@@ -6,6 +6,9 @@
 
 #include "LidarDriver.h"
 
+std::vector<double> print_scan(double min, double max, int n); // genera array di numeri casuali in un intervallo specificato
+std::ostream &operator<<(std::ostream &os, const std::vector<double> array); // overload dell'operator per facilitare la fase di testing
+
 int main(int argc, char *argv[])
 {
     // creazione di un oggetto LidarDriver
