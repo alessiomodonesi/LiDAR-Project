@@ -83,6 +83,9 @@ void LidarDriver::clear_buffer(void)
 
 double LidarDriver::get_distance(double angle)
 {
+    if (angle < 0 || angle > 180)
+        throw std::invalid_argument("angle must be [0°, 180°]");
+
     return buffer_[last_position_][round_angle(angle) * (1 / angular_resolution_)];
 }
 

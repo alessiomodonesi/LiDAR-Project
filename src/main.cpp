@@ -47,7 +47,7 @@ int main(int argc, char *argv[])
     // LidarDriver error_lidar(1.1);
 
     // chiamata a get_scan() ma il buffer è vuoto
-    std::vector<double> empty_buffer = default_lidar.get_scan();
+    // std::vector<double> empty_buffer = default_lidar.get_scan();
 
     // // riempimento del buffer di default_lidar
     // for (int i = 0; i < 10; i++)
@@ -79,6 +79,9 @@ int main(int argc, char *argv[])
     // // recupero della distanza ad un angolo specifico di second_lidar
     // std::cout << "\ndistanza a " << 10.1 << "°: " << second_lidar.get_distance(10.1) << "m" << std::endl;
     // std::cout << "\ndistanza a " << 10.3 << "°: " << second_lidar.get_distance(10.3) << "m" << std::endl;
+
+    // recupero della distanza ad un angolo errato
+    std::cout << "\ndistanza a " << 181.0 << "°: " << default_lidar.get_distance(181.0) << "m" << std::endl;
 
     // // pulizia del buffer
     // default_lidar.clear_buffer();
