@@ -37,7 +37,7 @@ int main(int argc, char *argv[])
 
     // ------------------------ BLOCCO TEST 1 ------------------------
 
-    /* // recupero e stampa della scansione più vecchia di default_lidar
+    // recupero e stampa della scansione più vecchia di default_lidar
     std::vector<double> oldest_scan_1 = default_lidar.get_scan();
     std::cout << "scansione più vecchia di default_lidar: \n" << oldest_scan_1 << std::endl;
 
@@ -58,7 +58,7 @@ int main(int argc, char *argv[])
 
     // recupero della distanza ad un angolo specifico di second_lidar
     std::cout << "distanza a " << 10.1 << "°: " << second_lidar.get_distance(10.1) << " m" << std::endl;
-    std::cout << "distanza a " << 10.3 << "°: " << second_lidar.get_distance(10.3) << " m" << std::endl; */
+    std::cout << "distanza a " << 10.3 << "°: " << second_lidar.get_distance(10.3) << " m" << std::endl;
 
     // ------------------------ BLOCCO TEST 2 ------------------------
 
@@ -94,9 +94,9 @@ int main(int argc, char *argv[])
     blocco4_lidar.new_scan(too_much_value);
     std::cout << "caso con scansione sovra-dimensionata: \n" << blocco4_lidar << std::endl; */
 
-    // ------------------------ BLOCCO TEST 5 ------------------------
+    // ------------------------ BLOCCO TEST 4 ------------------------
 
-    // caso in cui scan contiene anche valori negativi
+    /* // caso in cui scan contiene anche valori negativi
     default_lidar.clear_buffer();
     int count_negative_value = 0;
     std::vector<double> negative_value = print_scan(-0.5, 2.0, (180.0 / default_lidar.angular_resolution()) + 1);
@@ -106,7 +106,7 @@ int main(int argc, char *argv[])
 
     std::cout << "vector con " << count_negative_value << " valori negativi: \n" << negative_value << std::endl;
     default_lidar.new_scan(negative_value);
-    std::cout << "caso con scansione con valori negativi: \n" << default_lidar << std::endl;
+    std::cout << "caso con scansione con valori negativi: \n" << default_lidar << std::endl; */
     
     // ------------------------ FINE TEST ------------------------
     return 0;
