@@ -44,7 +44,7 @@ int main(int argc, char *argv[])
     LidarDriver default_lidar;
     LidarDriver second_lidar(0.5);
     // lancia std::invalid_argument
-    LidarDriver error_lidar(1.1);
+    // LidarDriver error_lidar(1.1);
 
     // riempimento del buffer di default_lidar
     for (int i = 0; i < 10; i++)
