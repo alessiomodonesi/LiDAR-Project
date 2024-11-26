@@ -107,10 +107,10 @@ int main(int argc, char *argv[])
     // std::vector<double> incomplete_scan = default_lidar.get_scan();
     // std::cout << "\ncaso in cui scan contiene meno valori del dovuto\n" << incomplete_scan << std::endl;
     
-    // caso in cui scan contiene più valori del dovuto
-    default_lidar.new_scan(print_scan(0.0, 2.0, 201));
-    std::vector<double> too_much_value = default_lidar.get_scan();
-    std::cout << "\ncaso in cui scan contiene più valori del dovuto\n" << too_much_value << std::endl;
+    // // caso in cui scan contiene più valori del dovuto
+    // default_lidar.new_scan(print_scan(0.0, 2.0, 201));
+    // std::vector<double> too_much_value = default_lidar.get_scan();
+    // std::cout << "\ncaso in cui scan contiene più valori del dovuto\n" << too_much_value << std::endl;
     
     // caso in cui scan contiene anche valori negativi
     std::vector<double> negative_value = print_scan(-0.5, 2.0, (180.0 / default_lidar.angular_resolution()) + 1);
