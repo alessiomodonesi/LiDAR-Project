@@ -16,10 +16,10 @@ int main(int argc, char *argv[])
     LidarDriver second_lidar(0.5);
 
     // LANCIA STD::INVALID_ARGUMENT
-    LidarDriver error_lidar(1.1);
+    // LidarDriver error_lidar(1.1);
 
     // chiamata a get_scan() ma il buffer è vuoto, LANCIA STD::INVALID_ARGUMENT
-    // std::vector<double> empty_buffer = default_lidar.get_scan();
+    std::vector<double> empty_buffer = default_lidar.get_scan();
 
     // stampa di un oggetto di tipo LidarDriver vuoto, LANCIA STD::BAD_ALLOC
     // std::cout << default_lidar << std::endl;
