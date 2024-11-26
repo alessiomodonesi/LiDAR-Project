@@ -30,7 +30,9 @@ public:
         tale scansione non è eliminata dal buffer, e se l’angolo richiesto non è disponibile
         ritorna la lettura relativa al valore di angolo più vicino */
     double get_distance(double angle);  
-    int count_numbers(void); // conta le cifre per la stampa delle scansioni
+
+    // conta le cifre per la stampa delle scansioni
+    int count_numbers(void);
 
     // GETTER FUNCTIONS, in-class implementation                    
     int last_position(void) const { return last_position_; }
@@ -57,6 +59,6 @@ private:
 // HELPER FUNCTIONS
 /* L’overloading dell’operator<< che stampa a schermo l’ultima scansione salvata
     (ma non la rimuove dal buffer) */
-std::ostream &operator<<(std::ostream &os, LidarDriver obj);
+std::ostream &operator<<(std::ostream &os, const LidarDriver obj);
 
 #endif // LIDARDRIVER_H
