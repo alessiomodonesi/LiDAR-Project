@@ -134,6 +134,6 @@ std::ostream &operator<<(std::ostream &os, LidarDriver obj)
     } 
     catch(std::invalid_argument e)
     {
-        return out << "the buffer is empty" << std::endl;
+        return os << "the buffer is empty" << std::endl;
     }
 }
