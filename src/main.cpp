@@ -37,7 +37,7 @@ int main(int argc, char *argv[])
 
     // ------------------------ BLOCCO TEST 1 ------------------------
 
-    // recupero e stampa della scansione più vecchia di default_lidar
+    /* // recupero e stampa della scansione più vecchia di default_lidar
     std::vector<double> oldest_scan_1 = default_lidar.get_scan();
     std::cout << "scansione più vecchia di default_lidar: \n" << oldest_scan_1 << std::endl;
 
@@ -58,25 +58,25 @@ int main(int argc, char *argv[])
 
     // recupero della distanza ad un angolo specifico di second_lidar
     std::cout << "distanza a " << 10.1 << "°: " << second_lidar.get_distance(10.1) << " m" << std::endl;
-    std::cout << "distanza a " << 10.3 << "°: " << second_lidar.get_distance(10.3) << " m" << std::endl;
+    std::cout << "distanza a " << 10.3 << "°: " << second_lidar.get_distance(10.3) << " m" << std::endl; */
 
     // ------------------------ BLOCCO TEST 2 ------------------------
 
-    // // pulizia del buffer
-    // default_lidar.clear_buffer();
-    // std::cout << "buffer pulito" << std::endl;
+    // pulizia del buffer
+    default_lidar.clear_buffer();
+    std::cout << "buffer pulito" << std::endl;
 
-    // // inserimento di una nuova scansione dopo la pulizia del buffer
-    // std::vector<double> post_clear_scan = print_scan(0.0, 2.0, (180 / default_lidar.angular_resolution()) + 1);
-    // default_lidar.new_scan(post_clear_scan);
-    // std::cout << "\ninserimento di una nuova scansione dopo la pulizia del buffer: \n" << post_clear_scan << std::endl;
+    // inserimento di una nuova scansione dopo la pulizia del buffer
+    std::vector<double> post_clear_scan = print_scan(0.0, 2.0, (180 / default_lidar.angular_resolution()) + 1);
+    default_lidar.new_scan(post_clear_scan);
+    std::cout << "\ninserimento di una nuova scansione dopo la pulizia del buffer: \n" << post_clear_scan << std::endl;
     
-    // // stampa di un oggetto di tipo LidarDriver
-    // std::cout << "stampa di un oggetto di tipo LidarDriver: \n" << default_lidar << std::endl;
+    // stampa di un oggetto di tipo LidarDriver
+    std::cout << "stampa di un oggetto di tipo LidarDriver: \n" << default_lidar << std::endl;
 
-    // // prova di eliminazione dello scan inserito post buffer clear
-    // std::vector<double> oldest_post_clear_scan = default_lidar.get_scan();
-    // std::cout << "prova di eliminazione della scansione inserita post buffer-clear: \n" << oldest_post_clear_scan << std::endl;
+    // prova di eliminazione dello scan inserito post buffer clear
+    std::vector<double> oldest_post_clear_scan = default_lidar.get_scan();
+    std::cout << "prova di eliminazione della scansione inserita post buffer-clear: \n" << oldest_post_clear_scan << std::endl;
 
     // ------------------------ BLOCCO TEST 3 ------------------------
 
