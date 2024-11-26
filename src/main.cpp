@@ -37,87 +37,77 @@ int main(int argc, char *argv[])
 
     // ------------------------ BLOCCO TEST 1 ------------------------
 
-    /*
     // recupero e stampa della scansione più vecchia di default_lidar
     std::vector<double> oldest_scan_1 = default_lidar.get_scan();
-    std::cout << "recupero e stampa della scansione più vecchia di default_lidar\n" << oldest_scan_1 << std::endl;
+    std::cout << "scansione più vecchia di default_lidar: \n" << oldest_scan_1 << std::endl;
 
     // recupero e stampa della scansione più vecchia di second_lidar
     std::vector<double> oldest_scan_2 = second_lidar.get_scan();
-    std::cout << "recupero e stampa della scansione più vecchia di second_lidar\n" << oldest_scan_2 << std::endl;
+    std::cout << "scansione più vecchia di second_lidar: \n" << oldest_scan_2 << std::endl;
 
     // test funzione circolare del buffer
     default_lidar.new_scan(print_scan(0.0, 2.0, (180 / default_lidar.angular_resolution()) + 1));
 
     // recupero e stampa della scansione più vecchia post buffer-testing
     std::vector<double> oldest_scan_3 = default_lidar.get_scan();
-    std::cout << "recupero e stampa della scansione più vecchia post buffer-testing\n" << oldest_scan_3 << std::endl;
+    std::cout << "scansione più vecchia post buffer-testing: \n" << oldest_scan_3 << std::endl;
 
     // recupero della distanza ad un angolo specifico di default_lidar
     std::cout << "distanza a " << 10.3 << "°: " << default_lidar.get_distance(10.3) << " m" << std::endl;
-    std::cout << "\ndistanza a " << 10.6 << "°: " << default_lidar.get_distance(10.6) << " m" << std::endl;
+    std::cout << "distanza a " << 10.6 << "°: " << default_lidar.get_distance(10.6) << " m" << std::endl;
 
     // recupero della distanza ad un angolo specifico di second_lidar
-    std::cout << "\ndistanza a " << 10.1 << "°: " << second_lidar.get_distance(10.1) << " m" << std::endl;
-    std::cout << "\ndistanza a " << 10.3 << "°: " << second_lidar.get_distance(10.3) << " m" << std::endl;
-    */
+    std::cout << "distanza a " << 10.1 << "°: " << second_lidar.get_distance(10.1) << " m" << std::endl;
+    std::cout << "distanza a " << 10.3 << "°: " << second_lidar.get_distance(10.3) << " m" << std::endl;
 
     // ------------------------ BLOCCO TEST 2 ------------------------
 
-    /*
-    // pulizia del buffer
-    default_lidar.clear_buffer();
-    std::cout << "buffer pulito" << std::endl;
+    // // pulizia del buffer
+    // default_lidar.clear_buffer();
+    // std::cout << "buffer pulito" << std::endl;
 
-    // inserimento di una nuova scansione dopo la pulizia del buffer
-    std::vector<double> post_clear_scan = print_scan(0.0, 2.0, (180 / default_lidar.angular_resolution()) + 1);
-    default_lidar.new_scan(post_clear_scan);
-    std::cout << "\ninserimento di una nuova scansione dopo la pulizia del buffer\n" << post_clear_scan << std::endl;
+    // // inserimento di una nuova scansione dopo la pulizia del buffer
+    // std::vector<double> post_clear_scan = print_scan(0.0, 2.0, (180 / default_lidar.angular_resolution()) + 1);
+    // default_lidar.new_scan(post_clear_scan);
+    // std::cout << "\ninserimento di una nuova scansione dopo la pulizia del buffer: \n" << post_clear_scan << std::endl;
     
-    // stampa di un oggetto di tipo LidarDriver
-    std::cout << "stampa di un oggetto di tipo LidarDriver\n" << default_lidar << std::endl;
+    // // stampa di un oggetto di tipo LidarDriver
+    // std::cout << "stampa di un oggetto di tipo LidarDriver: \n" << default_lidar << std::endl;
 
-    // prova di eliminazione dello scan inserito post buffer clear
-    std::vector<double> oldest_post_clear_scan = default_lidar.get_scan();
-    std::cout << "prova di eliminazione dello scan inserito post buffer clear" << oldest_post_clear_scan << std::endl;
-    */
+    // // prova di eliminazione dello scan inserito post buffer clear
+    // std::vector<double> oldest_post_clear_scan = default_lidar.get_scan();
+    // std::cout << "prova di eliminazione della scansione inserita post buffer-clear: \n" << oldest_post_clear_scan << std::endl;
 
     // ------------------------ BLOCCO TEST 3 ------------------------
 
-    
-    // caso in cui scan contiene meno valori del dovuto
-    std::vector<double> incomplete_scan = print_scan(0.0, 2.0, 134);
-    std::cout << "vector incompleto\n" << incomplete_scan << std::endl;
-    LidarDriver blocco3_lidar;
-    blocco3_lidar.new_scan(incomplete_scan);
-    std::cout << "caso in cui scan contiene meno valori del dovuto\n" << blocco3_lidar << std::endl;
+    // // caso in cui scan contiene meno valori del dovuto
+    // std::vector<double> incomplete_scan = print_scan(0.0, 2.0, 134);
+    // std::cout << "vector sotto-dimensionato: \n" << incomplete_scan << std::endl;
+    // LidarDriver blocco3_lidar;
+    // blocco3_lidar.new_scan(incomplete_scan);
+    // std::cout << "caso con scansione sotto-dimensionata: \n" << blocco3_lidar << std::endl;
 
-    // caso in cui scan contiene più valori del dovuto
-    std::vector<double> too_much_value = print_scan(0.0, 2.0, 201);
-    std::cout << "vector con troppi valori\n" << too_much_value << std::endl;
-    LidarDriver blocco4_lidar;
-    blocco4_lidar.new_scan(too_much_value);
-    std::cout << "caso in cui scan contiene più valori del dovuto\n" << blocco4_lidar << std::endl;
-    
+    // // caso in cui scan contiene più valori del dovuto
+    // std::vector<double> too_much_value = print_scan(0.0, 2.0, 201);
+    // std::cout << "vector sovra-dimensionato: \n" << too_much_value << std::endl;
+    // LidarDriver blocco4_lidar;
+    // blocco4_lidar.new_scan(too_much_value);
+    // std::cout << "caso con scansione sovra-dimensionata: \n" << blocco4_lidar << std::endl;
 
     // ------------------------ BLOCCO TEST 5 ------------------------
 
-    /*
-    // caso in cui scan contiene anche valori negativi
-    default_lidar.clear_buffer();
-    std::vector<double> negative_value = print_scan(-0.5, 2.0, (180.0 / default_lidar.angular_resolution()) + 1);
-    int count_negative_value = 0;
-    for (int i = 0; i < negative_value.size(); i++)
-        if (negative_value[i] < 0)
-            count_negative_value++;
+    // // caso in cui scan contiene anche valori negativi
+    // default_lidar.clear_buffer();
+    // int count_negative_value = 0;
+    // std::vector<double> negative_value = print_scan(-0.5, 2.0, (180.0 / default_lidar.angular_resolution()) + 1);
+    // for (int i = 0; i < negative_value.size(); i++)
+    //     if (negative_value[i] < 0)
+    //         count_negative_value++;
 
-    std::cout << "vector con valori negativi\n" << negative_value << std::endl;
-    std::cout << "totale di valori negativi: " << count_negative_value << "\n" << std::endl;
-    default_lidar.new_scan(negative_value);
-    std::vector<double> s = default_lidar.get_scan();
-    std::cout << "caso in cui scan contiene anche valori negativi\n" << s << std::endl;
-    */
-
+    // std::cout << "vector con " << count_negative_value << "valori negativi: \n" << negative_value << std::endl;
+    // default_lidar.new_scan(negative_value);
+    // std::cout << "caso con scansione con valori negativi: \n" << default_lidar << std::endl;
+    
     // ------------------------ FINE TEST ------------------------
     return 0;
 }
