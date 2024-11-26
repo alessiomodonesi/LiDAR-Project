@@ -83,7 +83,7 @@ int main(int argc, char *argv[])
     std::cout << "\ndistanza a " << 10.1 << "°: " << second_lidar.get_distance(10.1) << "m" << std::endl;
     std::cout << "\ndistanza a " << 10.3 << "°: " << second_lidar.get_distance(10.3) << "m" << std::endl;
 
-    recupero della distanza ad un angolo errato, lancia std::invalid_argument
+    // recupero della distanza ad un angolo errato, lancia std::invalid_argument
     std::cout << "\ndistanza a " << 181.0 << "°: " << default_lidar.get_distance(181.0) << "m" << std::endl;
 
     // // pulizia del buffer
