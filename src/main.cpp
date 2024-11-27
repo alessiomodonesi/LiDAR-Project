@@ -62,12 +62,12 @@ int main(int argc, char *argv[])
     std::cout << "scansione più vecchia post buffer-testing: \n" << oldest_scan_4 << std::endl;
 
     // recupero della distanza ad un angolo specifico di default_lidar
-    std::cout << "distanza a " << 10.3 << "°: " << default_lidar.get_distance(10.3) << " m" << std::endl;
-    std::cout << "distanza a " << 10.6 << "°: " << default_lidar.get_distance(10.6) << " m" << std::endl;
+    std::cout << "distanza a " << 10.3 << "° di default_lidar: " << default_lidar.get_distance(10.3) << " m" << std::endl;
+    std::cout << "distanza a " << 10.6 << "° di default_lidar: " << default_lidar.get_distance(10.6) << " m" << std::endl;
 
     // recupero della distanza ad un angolo specifico di second_lidar
-    std::cout << "distanza a " << 10.1 << "°: " << second_lidar.get_distance(10.1) << " m" << std::endl;
-    std::cout << "distanza a " << 10.3 << "°: " << second_lidar.get_distance(10.3) << " m" << std::endl;
+    std::cout << "distanza a " << 10.1 << "° di second_lidar: " << second_lidar.get_distance(10.1) << " m" << std::endl;
+    std::cout << "distanza a " << 10.3 << "° di second_lidar: " << second_lidar.get_distance(10.3) << " m" << std::endl;
 
     // ------------------------ BLOCCO TEST 2 ------------------------
 
