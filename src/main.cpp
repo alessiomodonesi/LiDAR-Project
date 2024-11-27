@@ -58,8 +58,8 @@ int main(int argc, char *argv[])
     default_lidar.new_scan(print_scan(0.0, 2.0, (180 / default_lidar.angular_resolution()) + 1));
 
     // recupero e stampa della scansione più vecchia post buffer-testing
-    std::vector<double> oldest_scan_3 = default_lidar.get_scan();
-    std::cout << "scansione più vecchia post buffer-testing: \n" << oldest_scan_3 << std::endl;
+    std::vector<double> oldest_scan_4 = default_lidar.get_scan();
+    std::cout << "scansione più vecchia post buffer-testing: \n" << oldest_scan_4 << std::endl;
 
     // recupero della distanza ad un angolo specifico di default_lidar
     std::cout << "distanza a " << 10.3 << "°: " << default_lidar.get_distance(10.3) << " m" << std::endl;
