@@ -35,7 +35,7 @@ int main(int argc, char *argv[])
 
     // riempimento del buffer di third_lidar
     for (int i = 0; i < 10; i++)
-        third_lidar.new_scan(print_scan(0.0, 1.5, (180.0 / second_lidar.angular_resolution()) + 1));
+        third_lidar.new_scan(print_scan(0.0, 1.5, (180.0 / third_lidar.angular_resolution()) + 1));
 
     // recupero della distanza ad un angolo errato, LANCIA STD::INVALID_ARGUMENT
     // std::cout << "\ndistanza a " << 181.0 << "°: " << default_lidar.get_distance(181.0) << "m" << std::endl;
