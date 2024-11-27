@@ -1,8 +1,44 @@
-**Prova intermedia di programmazione
-Membri del gruppo: Modonesi Alessio, Rosa Emanuele, Silvestrin Tommaso
+## Membri del gruppo
+- Modonesi Alessio
+- Silvestrin Tommaso
+- Rosa Emanuele
 
-Cosa ha sviluppato Modonesi Alessio: header della classe LidarDriver, funzione get_scan(), clear_buffer(), count_numbers(), overload operator<< e relativi test
+Cosa ha sviluppato **Modonesi Alessio**:
+- **header** della classe LidarDriver
+- metodo **get_scan()**
+- metodo **clear_buffer()**
+- funzione aggiuntiva **count_numbers()**
+-  overload **operator<<**
+- relativi **test**
 
-Cosa ha sviluppato Silvestrin Tommaso: funzione new_scan(), get_distance(), update_position(), round_angle() e relativi test
+Cosa ha sviluppato **Silvestrin Tommaso**:
+- metodo **new_scan()**
+- metodo **get_distance()**
+- funzione aggiuntiva **update_position()**
+- funzione aggiuntiva **round_angle()**
+- relativi **test**
 
-Cosa ha sviluppato Rosa Emanuele: error 404
+Cosa ha sviluppato **Rosa Emanuele**: error 404
+
+## Come compilare con Cmake
+> ~/LiDAR-Project/$ cd build
+>
+> ~/LiDAR-Project/build/$ make
+> 
+> ~/LiDAR-Project/build/$ ./main
+
+## Come compilare con g++
+> ~/LiDAR-Project/$ cd include
+> 
+> ~/LiDAR-Project/include/$ mv LidarDriver.h ../src/LidarDriver.h
+> 
+> ~/LiDAR-Project/include/$ g++ LidarDriver.cpp main.cpp -o main
+> 
+> ~/LiDAR-Project/include/$ ./main
+
+## Links utili
+[LidarDriver.h](./include/LidarDriver.h)
+
+[LidarDriver.cpp](./src/LidarDriver.cpp)
+
+[main.cpp](./src/main.cpp)
