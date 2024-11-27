@@ -14,6 +14,7 @@ int main(int argc, char *argv[])
     // creazione di un oggetto LidarDriver
     LidarDriver default_lidar;
     LidarDriver second_lidar(0.5);
+    LidarDriver third_lidar(0.7);
 
     // LANCIA STD::INVALID_ARGUMENT
     // LidarDriver error_lidar(1.1);
@@ -32,6 +33,10 @@ int main(int argc, char *argv[])
     for (int i = 0; i < 10; i++)
         second_lidar.new_scan(print_scan(0.0, 1.0, (180.0 / second_lidar.angular_resolution()) + 1));
 
+    // riempimento del buffer di third_lidar
+    for (int i = 0; i < 10; i++)
+        third_lidar.new_scan(print_scan(0.0, 1.5, (180.0 / second_lidar.angular_resolution()) + 1));
+
     // recupero della distanza ad un angolo errato, LANCIA STD::INVALID_ARGUMENT
     // std::cout << "\ndistanza a " << 181.0 << "°: " << default_lidar.get_distance(181.0) << "m" << std::endl;
 
@@ -44,6 +49,10 @@ int main(int argc, char *argv[])
     // recupero e stampa della scansione più vecchia di second_lidar
     std::vector<double> oldest_scan_2 = second_lidar.get_scan();
     std::cout << "scansione più vecchia di second_lidar: \n" << oldest_scan_2 << std::endl;
+
+    // recupero e stampa della scansione più vecchia di third_lidar
+    std::vector<double> oldest_scan_3 = third_lidar.get_scan();
+    std::cout << "scansione più vecchia di third_lidar: \n" << oldest_scan_3 << std::endl;
 
     // test funzione circolare del buffer
     default_lidar.new_scan(print_scan(0.0, 2.0, (180 / default_lidar.angular_resolution()) + 1));
