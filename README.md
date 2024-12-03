@@ -1,6 +1,6 @@
 ## Membri del gruppo
-- Modonesi Alessio
-- Silvestrin Tommaso
+- [Modonesi Alessio](https://github.com/alessiomodonesi)
+- [Silvestrin Tommaso](https://github.com/tommasosilvestrin)
 
 Cosa ha sviluppato **Modonesi Alessio**:
 - **header** della classe LidarDriver
@@ -34,8 +34,6 @@ Cosa ha sviluppato **Silvestrin Tommaso**:
 > ~/LiDAR-Project/include/$ ./main
 
 ## Links utili
-[LidarDriver.h](./include/LidarDriver.h)
-
-[LidarDriver.cpp](./src/LidarDriver.cpp)
-
-[main.cpp](./src/main.cpp)
+- [LidarDriver.h](./include/LidarDriver.h)
+- [LidarDriver.cpp](./src/LidarDriver.cpp)
+- [main.cpp](./src/main.cpp)
