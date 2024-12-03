@@ -1,7 +1,6 @@
 ## Membri del gruppo
 - Modonesi Alessio
 - Silvestrin Tommaso
-- Rosa Emanuele
 
 Cosa ha sviluppato **Modonesi Alessio**:
 - **header** della classe LidarDriver
@@ -17,8 +16,6 @@ Cosa ha sviluppato **Silvestrin Tommaso**:
 - funzione aggiuntiva **update_position()**
 - funzione aggiuntiva **round_angle()**
 - relativi **test**
-
-Cosa ha sviluppato **Rosa Emanuele**: error 404
 
 ## Come compilare con Cmake
 > ~/LiDAR-Project/$ cd build
