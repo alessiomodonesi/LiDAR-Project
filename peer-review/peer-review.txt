@@ -1,6 +1,8 @@
 Peer Review
+
 Esaminati: gruppo GSD++
-Esaminatori: gruppo MS
+Esaminatori: gruppo MS (Modonesi A. e Silvestrin T.)
+
 Le attività da eseguire sul progetto da revisionare sono le seguenti:
 ● provare a compilare e ad eseguire il codice
 ● effettuare test estensivi, provando la robustezza del software in
@@ -11,19 +13,24 @@ casi particolari e a fronte di input imprevisti
     ○ stile migliorabile
 
 Revisione:
-(1) il codice compila correttamente e non segnale errori.
-(2) il main presenta il testing di ogni metodo e il relativo output.
-(3) design della classe minimale e chiara per via dell'utilizzo dei metodi della classe vector.
-    nessun problema di memory leak.
-    stile migliorabile nell'operatore di stampa.
+(1) Il codice sorgente compila correttamente e non segnale errori.
+(2) Il main presenta il testing di ogni metodo ed il relativo output.
+(3) Il design della classe è chiaro e minimale per via dell'utilizzo dei metodi della classe vector.
+    Nessun problema di memory leak, ma lo stile è migliorabile nell'operatore di stampa.
 
 Note:
-(1) il metodo new_scan() è gestito correttamentente con i metodi della classe vector,
+(1) Il metodo new_scan() è gestito correttamentente con i metodi della classe vector,
     manca però la gestione di eventuali valori negativi tra le misure del sensore.
-    presente anche la gestione di eventuali scansioni con più o meno letture del previsto.
-(2) il metodo get_scan() lancia correttamente un'eccezione se il buffer è vuoto ed
+    Presente anche la gestione di eventuali scansioni con più o meno letture del previsto.
+(2) Il metodo get_scan() lancia correttamente un'eccezione se il buffer è vuoto ed
     è correttamente gestito utilizzando i metodi della classe vector.
-(3) i metodi clear_buffer() e get_distance() sono correttamente implementati e gestiscono
+(3) I metodi clear_buffer() e get_distance() sono correttamente implementati e gestiscono
     correttamente le eccezioni.
-(4) l'overload dell'operator<< gestisce correttamente la stampa del contenuto del buffer e
-    le eventuali eccezioni.
+(4) L'overload dell'operator<< gestisce correttamente la stampa del contenuto del buffer e
+    le eventuali eccezioni, anche se non è il massimo per la visualizzazione su stdout.
+
+Conclusioni:
+in generale il progetto presenta della basi solide dal punto di vista del desing e della gestione
+della memoria. Mancano solamente alcune accortezze in materia di controlli e visualizzazione a schermo.
+
+Alessio Modonesi e Tommaso Silvestrin
